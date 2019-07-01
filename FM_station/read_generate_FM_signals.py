@@ -3,6 +3,8 @@ Created on Mon Jun 24 10:52:25 2019
     Reads a wav file with SDR IQ capture of FM stations located in :
     https://mega.nz/#F!3UUUnSiD!WLhWZ3ff4f4Pi7Ko_zcodQ
     
+    Also: https://drive.google.com/open?id=1itb_ePcPeDRXrVBIVL-1Y3wrt8yvpW28
+    
     Also generates IQ stream sampled at 2.4Msps to simulate a similar spectrum 
     sinusoids, this might be useful in an early stage to use a known signal.
 
@@ -21,8 +23,11 @@ import matplotlib.pyplot as plt
 
 N = 5000 #number of samples to read
 nAverages = 10 # number of averages
-folder = "C:\\Users\\F.Divruno\\Downloads\\" # change this to your folder.
+#folder = "C:\\Users\\F.Divruno\\Downloads\\" # change this to your folder.
+#filename = "17-22-08_89100kHz.wav"
+folder = "FM_station_data/"
 filename = "17-22-08_89100kHz.wav"
+
 CenterFrequency = 89100e3 # Centre freq of the recording is the number at the end of the filename.
 
 # ------------
@@ -61,7 +66,6 @@ plt.ylabel('dB')
 plt.title('Recording')
 
 
-
 #test signal generated with tone signals
 I = np.zeros(N)
 Q = np.zeros(N)
@@ -84,7 +88,10 @@ plt.subplot(2,1,2)
 plt.plot(freq/1e6,20*np.log10(V),'g')
 plt.xlabel('MHz')
 plt.ylabel('dB')
-plt.title('syntethized')
+plt.title('synthezized')
+plt.tight_layout()
+plt.savefig('Synthesized.png')
+plt.show()
 
 
 #%%Average the IQ recording of FM stations: 
@@ -107,4 +114,6 @@ plt.plot(freq/1e6,20*np.log10(V))
 plt.title('Averaged %d times'%nAverages)
 plt.xlabel('MHz')
 plt.ylabel('dB')
+plt.savefig('Averaged.png')
+plt.show()
 
