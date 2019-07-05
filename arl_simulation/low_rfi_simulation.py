@@ -8,9 +8,8 @@ from astropy import constants
 from astropy import units as u
 from astropy.coordinates import SkyCoord, EarthLocation
 
+from processing_library.util.coordinate_support import xyz_to_uvw, skycoord_to_lmn
 from wrappers.arlexecute.simulation.configurations import create_named_configuration
-from processing_library.util.coordinate_support import xyz_to_uvw, uvw_to_xyz, skycoord_to_lmn, simulate_point, pa_z
-
 
 
 def create_propagators(config, interferer: EarthLocation, frequency, **kwargs):
@@ -24,6 +23,7 @@ def create_propagators(config, interferer: EarthLocation, frequency, **kwargs):
     propagators = numpy.zeros([nants, nchannels], dtype='complex')
     for iant, ant_xyz in enumerate(config.xyz):
         vec = ant_xyz - interferer_xyz
+        # This ignores the Earth!
         r = numpy.sqrt(vec[0] ** 2 + vec[1] ** 2 + vec[2] ** 2)
         k = 2.0 * numpy.pi * frequency / constants.c.value
         propagators[iant, :] = numpy.exp(- 1.0j * k * r) / r
@@ -96,12 +96,12 @@ if __name__ == '__main__':
     # Perth from Google for the moment
     perth = EarthLocation(lon="115.8605", lat="-31.9505", height=0.0)
     
-    rmax = 3000.0
+    rmax = 300.0
     low = create_named_configuration('LOWR3', rmax=rmax)
     nants = len(low.names)
     
     # Calculate the propagators for signals from Perth to the stations in low
-    # These are fixed in time but varies with frequency.
+    # These are fixed in time but vary with frequency.
     propagators = create_propagators(low, perth, frequency=frequency)
     
     plt.clf()
