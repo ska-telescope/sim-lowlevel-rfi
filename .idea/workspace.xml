@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32b8ab0c-c1dd-4419-beed-b9d360218d57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/FM_station/DTV_Waterfall.png" beforeDir="false" afterPath="$PROJECT_DIR$/FM_station/DTV_Waterfall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FM_station/generate_DTV_interference.py" beforeDir="false" afterPath="$PROJECT_DIR$/FM_station/generate_DTV_interference.py" afterDir="false" />
-    </list>
+    <list default="true" id="32b8ab0c-c1dd-4419-beed-b9d360218d57" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +298,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FM_station/generate_DTV_interference.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DTV/generate_DTV_interference.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -427,23 +424,22 @@
       <updated>1561646830164</updated>
       <workItem from="1561646831739" duration="12558000" />
       <workItem from="1561727447882" duration="33546000" />
-      <workItem from="1562316890373" duration="7164000" />
+      <workItem from="1562316890373" duration="7438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53268000" />
+    <option name="totallyTimeSpent" value="53542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19027181" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2732475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32919255" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -462,7 +458,7 @@
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info anchor="right" id="PlantUML" order="4" />
       <window_info anchor="right" id="Database" order="5" weight="0.3297568" />
-      <window_info anchor="right" id="SciView" order="6" sideWeight="0.49814814" weight="0.5114449" />
+      <window_info active="true" anchor="right" id="SciView" order="6" sideWeight="0.49814814" visible="true" weight="0.5114449" />
       <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" order="7" sideWeight="0.50185186" side_tool="true" weight="0.39198855" />
     </layout>
   </component>
