@@ -55,7 +55,7 @@ def add_noise(waterfall, bandwidth, int_time, diameter, t_sys, eta):
     area = numpy.pi * (diameter / 2.) ** 2
     bt = bandwidth * int_time
     sigma = 1e26 * (numpy.sqrt(2) * k_b * t_sys) / (area * eta * (numpy.sqrt(bt)))
-    print("RMS noise per sample = %g Watts/m^2/Hz" % sigma)
+    print("RMS noise per sample = %g Jy" % sigma)
     sshape = waterfall.shape
     waterfall += numpy.random.normal(0.0, sigma, sshape) + 1j * numpy.random.normal(0.0, sigma, sshape)
     return waterfall

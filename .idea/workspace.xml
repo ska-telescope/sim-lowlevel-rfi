@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32b8ab0c-c1dd-4419-beed-b9d360218d57" name="Default Changelist" comment="" />
+    <list default="true" id="32b8ab0c-c1dd-4419-beed-b9d360218d57" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DTV/generate_DTV_interference.py" beforeDir="false" afterPath="$PROJECT_DIR$/DTV/generate_DTV_interference.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,26 +30,8 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FM_station/FM_station_data/17-22-08_89100kHz.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FM_station/Averaged.png">
           <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../algorithm-reference-library/processing_components/simulation/configurations.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2850">
-              <caret line="198" selection-start-line="197" selection-end-line="198" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -60,10 +44,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FM_station/generate_DTV_interference.py">
+        <entry file="file://$PROJECT_DIR$/DTV/generate_DTV_interference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="88" column="44" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
+            <state relative-caret-position="393">
+              <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -92,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FM_station/read_generate_FM_signals.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
+            <state relative-caret-position="15">
               <caret line="71" column="70" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="70" />
               <folding>
                 <element signature="e#458#469#0" expanded="true" />
@@ -113,22 +97,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda/envs/arlenv/lib/python3.6/site-packages/astropy/coordinates/sky_coordinate.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8520">
-              <caret line="590" selection-start-line="590" selection-end-line="590" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>cartesian</find>
-      <find>np.</find>
       <find>add_noise</find>
+      <find>np.</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -150,6 +125,7 @@
         <option value="$PROJECT_DIR$/FM_station/generate_interference.py" />
         <option value="$PROJECT_DIR$/FM_station/generate_FM_interference.py" />
         <option value="$PROJECT_DIR$/FM_station/generate_DTV_interference.py" />
+        <option value="$PROJECT_DIR$/DTV/generate_DTV_interference.py" />
       </list>
     </option>
   </component>
@@ -174,6 +150,11 @@
               <item name="sim-lowlevel-rfi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sim-lowlevel-rfi" type="462c0819:PsiDirectoryNode" />
               <item name="arl_simulation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sim-lowlevel-rfi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sim-lowlevel-rfi" type="462c0819:PsiDirectoryNode" />
+              <item name="DTV" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sim-lowlevel-rfi" type="b2602c69:ProjectViewProjectNode" />
@@ -269,6 +250,7 @@
       <recent name="$PROJECT_DIR$/arl_simulation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DTV" />
       <recent name="$PROJECT_DIR$/contrib" />
     </key>
   </component>
@@ -424,17 +406,18 @@
       <updated>1561646830164</updated>
       <workItem from="1561646831739" duration="12558000" />
       <workItem from="1561727447882" duration="33546000" />
-      <workItem from="1562316890373" duration="7438000" />
+      <workItem from="1562316890373" duration="7688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53542000" />
+    <option name="totallyTimeSpent" value="53792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2732475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2732475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -458,7 +441,7 @@
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info anchor="right" id="PlantUML" order="4" />
       <window_info anchor="right" id="Database" order="5" weight="0.3297568" />
-      <window_info active="true" anchor="right" id="SciView" order="6" sideWeight="0.49814814" visible="true" weight="0.5114449" />
+      <window_info anchor="right" id="SciView" order="6" sideWeight="0.49814814" weight="0.5114449" />
       <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" order="7" sideWeight="0.50185186" side_tool="true" weight="0.39198855" />
     </layout>
   </component>
@@ -502,7 +485,7 @@
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$read_generate_FM_signals.coverage" NAME="read_generate_FM_signals Coverage Results" MODIFIED="1562006759749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/contrib" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$generate_interference.coverage" NAME="generate_interference Coverage Results" MODIFIED="1562325679967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FM_station" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$low_rfi_simulation.coverage" NAME="low_rfi_simulation Coverage Results" MODIFIED="1561966641302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arl_simulation" />
-    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$generate_DTV_interference.coverage" NAME="generate_DTV_interference Coverage Results" MODIFIED="1562599149335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FM_station" />
+    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$generate_DTV_interference.coverage" NAME="generate_DTV_interference Coverage Results" MODIFIED="1562600614956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FM_station" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$read_generate_FM_signals__1_.coverage" NAME="read_generate_FM_signals (1) Coverage Results" MODIFIED="1562165600681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FM_station" />
   </component>
   <component name="debuggerHistoryManager">
@@ -615,9 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FM_station/Synthesized.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/FM_station/FM_station_data/17-22-08_89100kHz.wav">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="-1574" />
@@ -629,9 +609,6 @@
           <caret line="9" selection-end-line="9" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FM_station/Averaged.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../algorithm-reference-library/processing_components/simulation/configurations.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -650,13 +627,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../algorithm-reference-library/processing_library/util/coordinate_support.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="85" selection-start-line="74" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FM_station/Averaged.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FM_station/generate_FM_interference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FM_station/read_generate_FM_signals.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
+        <state relative-caret-position="15">
           <caret line="71" column="70" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="70" />
           <folding>
             <element signature="e#458#469#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FM_station/Waterfall.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FM_station/Synthesized.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/envs/arlenv/lib/python3.6/site-packages/astropy/coordinates/sky_coordinate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="590" selection-start-line="590" selection-end-line="590" />
         </state>
       </provider>
     </entry>
@@ -670,31 +677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/envs/arlenv/lib/python3.6/site-packages/astropy/coordinates/sky_coordinate.py">
+    <entry file="file://$PROJECT_DIR$/DTV/generate_DTV_interference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8520">
-          <caret line="590" selection-start-line="590" selection-end-line="590" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FM_station/generate_FM_interference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../algorithm-reference-library/processing_library/util/coordinate_support.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="85" selection-start-line="74" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FM_station/generate_DTV_interference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="88" column="44" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
+        <state relative-caret-position="393">
+          <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
         </state>
       </provider>
     </entry>
