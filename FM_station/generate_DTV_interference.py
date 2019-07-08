@@ -21,17 +21,45 @@ import numpy
 
 # ------------  PARAMETERS
 
-def generate_DTV(frequency, times, power=50e3):
+def calculate_noise_visibility(bandwidth, int_time, diameter, t_sys, eta):
+    """Determine noise rms per visibility
+    :returns: Sigma [nrows]
+    """
+    
+    k_b = 1.38064852e-23
+    area = numpy.pi * (diameter / 2.) ** 2
+    bt = bandwidth * int_time
+    sigma = (numpy.sqrt(2) * k_b * t_sys) / (area * eta * (numpy.sqrt(bt)))
+    sigma *= 1e26
+    return sigma
+
+def generate_DTV(frequency, times, power=50e3, gain=1e-9):
     nchan = len(frequency)
     ntimes = len(times)
     shape = [ntimes, nchan]
     sshape = [ntimes, nchan//2]
     bchan = nchan//4
     echan = 3*nchan//4
-    amp = numpy.sqrt(2.0) * power / (max(frequency)-min(frequency))
+    amp = 1e26 * gain * numpy.sqrt(2.0) * power / (max(frequency)-min(frequency))
+    print("RMS signal per sample = %g Jy" % amp)
     signal = numpy.zeros(shape, dtype='complex')
     signal[:, bchan:echan] +=  numpy.random.normal(0.0, amp, sshape) + 1j * numpy.random.normal(0.0, amp, sshape)
     return signal
+
+
+def add_noise(waterfall, bandwidth, int_time, diameter, t_sys, eta):
+    """Determine noise rms per visibility
+    :returns: Sigma [nrows]
+    """
+    k_b = 1.38064852e-23
+    area = numpy.pi * (diameter / 2.) ** 2
+    bt = bandwidth * int_time
+    sigma = 1e26 * (numpy.sqrt(2) * k_b * t_sys) / (area * eta * (numpy.sqrt(bt)))
+    print("RMS noise per sample = %g Watts/m^2/Hz" % sigma)
+    sshape = waterfall.shape
+    waterfall += numpy.random.normal(0.0, sigma, sshape) + 1j * numpy.random.normal(0.0, sigma, sshape)
+    return waterfall
+
 
 if __name__ == "__main__":
     sample_freq = 2e5
@@ -40,7 +68,10 @@ if __name__ == "__main__":
     tscan = 0.2
     times = numpy.arange(0.0, 30.0, 0.2)
     ntimes = len(times)
-    waterfall = generate_DTV(frequency, times, 1.0)
+    gain = 3e-19
+    waterfall = generate_DTV(frequency, times, 1.0, gain)
+    
+    waterfall = add_noise(waterfall, bandwidth=sample_freq, int_time=tscan, diameter=35.0, t_sys=200, eta=0.9)
     
     plt.clf()
     plt.imshow(numpy.abs(waterfall), origin='bottom')
@@ -55,7 +86,8 @@ if __name__ == "__main__":
     plt.yticks(itticks, tticks)
     
     cbar = plt.colorbar()
-    cbar.set_label('Power Spectral Density (W/Hz)', rotation=270)
+    plt.title(("Gain towards Perth = %.1f dB" % (10*numpy.log10(gain))))
+    cbar.set_label('Power Spectral Density (Jy)', rotation=270)
     plt.tight_layout()
     plt.savefig("DTV_Waterfall.png")
     plt.show()
