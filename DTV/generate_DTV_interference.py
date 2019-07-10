@@ -51,10 +51,12 @@ def add_noise(waterfall, bandwidth, int_time, diameter, t_sys, eta):
     """Determine noise rms per visibility
     :returns: Sigma [nrows]
     """
+    # The specified sensitivity (effective area / T_sys) is roughly 610 m ^ 2 / K in the range 160 - 200MHz
+    # sigma_vis = 2 k T_sys / (area * sqrt(tb)) = 2 k 512 / (610 * sqrt(tb)
+    sens = 610
     k_b = 1.38064852e-23
-    area = numpy.pi * (diameter / 2.) ** 2
     bt = bandwidth * int_time
-    sigma = 1e26 * (numpy.sqrt(2) * k_b * t_sys) / (area * eta * (numpy.sqrt(bt)))
+    sigma = 2 * 1e26 * k_b / ((sens/512) * (numpy.sqrt(bt)))
     print("RMS noise per sample = %g Jy" % sigma)
     sshape = waterfall.shape
     waterfall += numpy.random.normal(0.0, sigma, sshape) + 1j * numpy.random.normal(0.0, sigma, sshape)
@@ -68,7 +70,7 @@ if __name__ == "__main__":
     tscan = 0.2
     times = numpy.arange(0.0, 30.0, 0.2)
     ntimes = len(times)
-    gain = 3e-19
+    gain = 1e-18
     waterfall = generate_DTV(frequency, times, 1.0, gain)
     
     waterfall = add_noise(waterfall, bandwidth=sample_freq, int_time=tscan, diameter=35.0, t_sys=200, eta=0.9)
