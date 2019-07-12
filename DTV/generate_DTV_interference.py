@@ -73,7 +73,7 @@ if __name__ == "__main__":
     gain = 1e-18
     waterfall = generate_DTV(frequency, times, 1.0, gain)
     
-    waterfall = add_noise(waterfall, bandwidth=sample_freq, int_time=tscan, diameter=35.0, t_sys=200, eta=0.9)
+#    waterfall = add_noise(waterfall, bandwidth=sample_freq, int_time=tscan, diameter=35.0, t_sys=200, eta=0.9)
     
     plt.clf()
     plt.imshow(numpy.abs(waterfall), origin='bottom')
