@@ -8,6 +8,7 @@ from astropy import units as u
 from astropy.coordinates import SkyCoord, EarthLocation
 
 from processing_library.util.array_functions import average_chunks
+from simulate_rfi_block import simulate_rfi_block
 from rfi_simulation import create_propagators, calculate_averaged_correlation, calculate_rfi_at_station, \
     calculate_station_correlation_rfi, calculate_station_fringe_rotation, generate_DTV, add_noise
 from wrappers.arlexecute.simulation.configurations import create_named_configuration
@@ -48,13 +49,13 @@ if __name__ == '__main__':
     sample_freq = 3e4
     nchannels = 1000
     frequency = 170.5e6 + numpy.arange(nchannels) * sample_freq
-    channel_average = 4
+    channel_average = 16
     print("%d frequency channels of width %.g MHz" % (nchannels, sample_freq*1e-6))
     
     ntimes = 1020
     integration_time = 0.5
     times = numpy.arange(ntimes) * integration_time
-    time_average = 4
+    time_average = 16
     print("%d integrations of duration %g (s)" % (ntimes, integration_time))
     
     phasecentre = SkyCoord(ra=+30.0 * u.deg, dec=-45.0 * u.deg, frame='icrs', equinox='J2000')
@@ -63,7 +64,7 @@ if __name__ == '__main__':
     site = EarthLocation(lon="116.76444824", lat="-26.824722084", height=300.0)
     
     # Perth from Google for the moment
-    perth = EarthLocation(lon="115.8605", lat="-31.9505", height=0.0)
+    emitter_location = EarthLocation(lon="115.8605", lat="-31.9505", height=0.0)
     
     rmax = 3000.0
     low = create_named_configuration('LOWR3', rmax=rmax)
@@ -71,98 +72,15 @@ if __name__ == '__main__':
     low.data = low.data[::antskip]
     nants = len(low.names)
     print("There are %d stations" % nants)
+
+    correlation, uvw = simulate_rfi_block(low, times, frequency, phasecentre, emitter_location=emitter_location,
+                                          emitter_power=5e4, attenuation=1.0)
     
-    # Calculate the power spectral density of the DTV station: Watts/Hz
-    emitter = generate_DTV(frequency, times, power=50e3, timevariable=False)
-    
-    plt.clf()
-    plt.imshow(numpy.abs(emitter), origin='bottom')
-    add_ticks(plt, 1e-6*frequency, times)
-    plt.title('DTV Power Spectral Density')
-    plt.xlabel('Frequency (MHz)')
-    plt.ylabel('Time (s)')
-    cbar = plt.colorbar()
-    cbar.set_label('Emission (Watts/Hz)', rotation=270)
-    plt.tight_layout()
-    plt.savefig("Emission.png")
-    plt.show(block=False)
-    
-    # Calculate the propagators for signals from Perth to the stations in low
-    # These are fixed in time but vary with frequency. The ad hoc attenuation
-    # is set to produce signal roughly equal to noise at LOW
-    attenuation = 3e-4
-    propagators = create_propagators(low, perth, frequency=frequency, attenuation=attenuation)
-    
-    plt.clf()
-    for i in range(0, propagators.shape[0], 33):
-        plt.plot(frequency, numpy.angle(propagators[i, :]), '-', label=str(i))
-    plt.title("Propagator phases, Perth to LOW, rmax = %.1f (m)" % rmax)
-    plt.xlabel('Frequency (MHz)')
-    plt.ylabel('Phase (rad)')
-    plt.savefig("propagators.png")
-    plt.show(block=False)
-    
-    # Now calculate the RFI at the stations, based on the emitter and the propagators
-    rfi_at_station = calculate_rfi_at_station(propagators, emitter)
-    
-    plt.clf()
-    plt.imshow(numpy.abs(rfi_at_station[0, ...]), origin='bottom')
-    add_ticks(plt, times, 1e-6*frequency)
-    plt.title('RFI at station, amplitude, with respect to station %s' % low.names[0])
-    plt.xlabel('Time (s)')
-    plt.ylabel('Frequency (MHz)')
-    plt.savefig("rfi_at_station_phase.png")
-    plt.show(block=False)
-    
-    plt.clf()
-    plt.imshow(numpy.angle(rfi_at_station[0, ...]))
-    add_ticks(plt, 1e-6*frequency, times)
-    plt.title('RFI at station, phase, with respect to station %s' % low.names[0])
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('Time')
-    plt.savefig("rfi_at_station_amplitude.png")
-    plt.show(block=False)
-    
-    # Station fringe rotation: shape [nants, ntimes, nchan] complex phasor to be applied to
-    # reference to the pole.
-    fringe_rotation, uvw = calculate_station_fringe_rotation(low.xyz, times, frequency, phasecentre, pole)
-    plt.clf()
-    plt.imshow(numpy.angle(fringe_rotation[1, :, :]), origin='bottom')
-    add_ticks(plt, 1e-6 * frequency, times)
-    plt.title('Fringe rotation phase, %s' % low.names[1])
-    plt.xlabel('Frequency (MHz)')
-    plt.ylabel('Times (s)')
-    plt.savefig("fringe_rotation.png")
-    plt.show(block=False)
-    
-    # Calculate the rfi correlationm using the fringe rotation and the rfi at the station
-    # [nants, nants, ntimes, nchan]
-    correlation = calculate_station_correlation_rfi(fringe_rotation, rfi_at_station)
     print("RMS interference per sample = %g Jy" % numpy.std(numpy.real(correlation)))
     noise = False
     if noise:
         correlation = add_noise(correlation, sample_freq, integration_time)
         print("RMS interference + noise per sample = %g Jy" % numpy.std(numpy.real(correlation)))
-
-    for ant in [1]:
-        plt.clf()
-        plt.imshow(numpy.angle(correlation[0, ant, :, :]), origin='bottom')
-        add_ticks(plt, 1e-6 * frequency, times)
-        plt.title('Correlation phase, %s - %s ' % (low.names[0], low.names[ant]))
-        plt.xlabel('Frequency (MHz)')
-        plt.ylabel('Time (s)')
-        plt.savefig("correlation_phase.png")
-        plt.show(block=False)
-        
-        plt.clf()
-        plt.imshow(numpy.abs(correlation[0, ant, :, :]), origin='bottom')
-        add_ticks(plt, 1e-6 * frequency, times)
-        plt.title('Correlation amplitude, %s - %s ' % (low.names[0], low.names[ant]))
-        plt.xlabel('Frequency (MHz)')
-        plt.ylabel('Time (s)')
-        plt.colorbar()
-        plt.savefig("correlation_amplitude.png")
-        plt.show(block=False)
     
     # Integrate the correlation over time and frequency
     if channel_average > 1 or time_average > 1:
