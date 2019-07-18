@@ -17,14 +17,14 @@ def add_ticks(plt, x, y):
     no_labels = 6  # how many labels to see on axis x
     step_x = int(nx / (no_labels - 1))  # step between consecutive labels
     x_positions = numpy.arange(0, nx, step_x)  # pixel count at label position
-    x_labels = x[::step_x]  # labels you want to see
+    x_labels = ["%.1f" % value for value in x[::step_x]]  # labels you want to see
     plt.xticks(x_positions, x_labels)
     
     ny = y.shape[0]
     no_labels = 6  # how many labels to see on axis y
     step_y = int(ny / (no_labels - 1))  # step between consecutive labels
     y_positions = numpy.arange(0, ny, step_y)  # pixel count at label position
-    y_labels = y[::step_y]  # labels you want to see
+    y_labels = ["%.1f" % value for value in y[::step_y]]  # labels you want to see
     plt.yticks(y_positions, y_labels)
 
 
@@ -105,6 +105,8 @@ if __name__ == '__main__':
         print("RMS interference + noise per sample = %g Jy" % numpy.std(numpy.real(correlation)))
     
     # Integrate the correlation over time and frequency
+    averaged_frequency = numpy.array(average_chunks(frequency, numpy.ones_like(frequency), channel_average))[0]
+    averaged_times = numpy.array(average_chunks(times, numpy.ones_like(times), time_average))[0]
     correlation_std = list()
     averaged_correlation_std = list()
     uvdistance = list()
@@ -122,7 +124,45 @@ if __name__ == '__main__':
             offset = numpy.average(uvw[ant2,:,:] - uvw[ant1,:,:], axis=1)
             uvd = numpy.sqrt(offset[0]**2+offset[1]**2)
             uvdistance.append(uvd)
-        
+            
+            if ant2 == 0:
+                plt.clf()
+                plt.imshow(numpy.abs(correlation[ant2, ant1,...]), origin='bottom')
+                add_ticks(plt, 1e-6 * frequency, times)
+                plt.title('Correlation %d %d, uv distance %.1f (m)' % (ant2, ant1, uvd))
+                plt.ylabel('Time (s)')
+                plt.xlabel('Frequency (MHz)')
+                plt.colorbar()
+                plt.savefig('correlation_amplitude_%d_%d.png' % (ant2, ant1))
+                plt.show(block=False)
+                plt.clf()
+                plt.imshow(numpy.angle(correlation[ant2, ant1,...]), origin='bottom')
+                add_ticks(plt, 1e-6 * frequency, times)
+                plt.title('Correlation phase %d %d, uv distance %.1f (m)' % (ant2, ant1, uvd))
+                plt.ylabel('Time (s)')
+                plt.xlabel('Frequency (MHz)')
+                plt.colorbar()
+                plt.savefig('correlation_phase_%d_%d.png' % (ant2, ant1))
+                plt.show(block=False)
+                plt.clf()
+                plt.imshow(numpy.abs(averaged_correlation), origin='bottom')
+                add_ticks(plt, 1e-6 * averaged_frequency, averaged_times)
+                plt.title('Correlation amplitude %d %d, uv distance %.1f (m)' % (ant2, ant1, uvd))
+                plt.ylabel('Time (s)')
+                plt.xlabel('Frequency (MHz)')
+                plt.colorbar()
+                plt.savefig('averaged_correlation_amplitude_%d_%d.png' % (ant2, ant1))
+                plt.show(block=False)
+                plt.clf()
+                plt.imshow(numpy.angle(averaged_correlation), origin='bottom')
+                add_ticks(plt, 1e-6 * averaged_frequency, averaged_times)
+                plt.title('Correlation phase %d %d, uv distance %.1f (m)' % (ant2, ant1, uvd))
+                plt.ylabel('Time (s)')
+                plt.xlabel('Frequency (MHz)')
+                plt.colorbar()
+                plt.savefig('averaged_correlation_phase_%d_%d.png' % (ant2, ant1))
+                plt.show(block=False)
+
     plt.clf()
     plt.semilogy(uvdistance, correlation_std, '.', color='blue', label='Non-averaged')
     plt.semilogy(uvdistance, averaged_correlation_std, '.', color='red', label='Averaged')
