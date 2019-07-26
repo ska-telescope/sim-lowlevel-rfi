@@ -104,3 +104,5 @@ venv.bak/
 .mypy_cache/
 /FM_station/FM_station_data/17-22-08_89100kHz.txt
 /FM_station/FM_station_data/17-22-08_89100kHz.wav
+dask-worker-space
+*.lock

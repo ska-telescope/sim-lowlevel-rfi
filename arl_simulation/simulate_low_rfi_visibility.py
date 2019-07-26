@@ -17,20 +17,21 @@ This averaging decorrelates the RFI signal.
 at the pole.
 
 """
+import pprint
+
 import matplotlib.pyplot as plt
 import numpy
-import pprint
 from astropy import units as u
 from astropy.coordinates import SkyCoord, EarthLocation
 
 from data_models.polarisation import PolarisationFrame
 from processing_components.simulation.rfi import calculate_averaged_correlation, simulate_rfi_block
+from processing_library.image.operations import create_image
 from processing_library.util.array_functions import average_chunks
 from workflows.arlexecute.imaging.imaging_arlexecute import invert_list_arlexecute_workflow, sum_invert_results
 from wrappers.arlexecute.execution_support.arlexecute import arlexecute
 from wrappers.arlexecute.execution_support.dask_init import get_dask_Client
 from wrappers.arlexecute.image.operations import show_image, export_image_to_fits
-from wrappers.arlexecute.imaging.base import create_image_from_visibility
 from wrappers.arlexecute.simulation.configurations import create_named_configuration
 from wrappers.arlexecute.simulation.noise import addnoise_visibility
 from wrappers.arlexecute.visibility.base import create_blockvisibility
@@ -75,11 +76,11 @@ def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre,
                         numpy.conjugate(averaged_bvis.data['vis'][itime, ant2, ant1, ..., pol])
         
         atime += 1
-        
+    
     del bvis
     
     if noise:
-        averaged_bvis = addnoise_visibility(averaged_bvis)
+        averaged_bvis = addnoise_visibility(averaged_bvis, t_sys=200.0)
     
     return averaged_bvis
 
@@ -93,7 +94,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Simulate DTV RFI')
     
     parser.add_argument('--use_dask', type=str, default='True', help='Use Dask to distribute processing?')
-
+    
     parser.add_argument('--context', type=str, default='DTV', help='DTV')
     parser.add_argument('--rmax', type=float, default=3e3, help='Maximum distance of station from centre (m)')
     parser.add_argument('--seed', type=int, default=18051955, help='Random number seed')
@@ -106,7 +107,7 @@ if __name__ == '__main__':
     parser.add_argument('--do_psf', type=str, default="False", help='Make the PSF?')
     parser.add_argument('--use_agg', type=str, default="False", help='Use Agg matplotlib backend?')
     parser.add_argument('--write_fits', type=str, default="True", help='Write fits files?')
-
+    
     parser.add_argument('--declination', type=float, default=-45.0, help='Declination (degrees)')
     
     parser.add_argument('--npixel', type=int, default=1025, help='Number of pixel per axis in image')
@@ -116,7 +117,8 @@ if __name__ == '__main__':
     parser.add_argument('--frequency_range', type=float, nargs=2, default=[170.5e6, 184.5e6],
                         help="Frequency range (Hz)")
     
-    parser.add_argument('--nintegrations_per_chunk', type=int, default=64, help='Number of integrations in a time chunk')
+    parser.add_argument('--nintegrations_per_chunk', type=int, default=64,
+                        help='Number of integrations in a time chunk')
     parser.add_argument('--time_average', type=int, default=16, help="Number of integrations in a chunk to average")
     parser.add_argument('--integration_time', type=float, default=0.25, help="Integration time (s)")
     parser.add_argument('--time_range', type=float, nargs=2, default=[-6.0, 6.0], help="Hourangle range (hours)")
@@ -132,9 +134,9 @@ if __name__ == '__main__':
     
     if args.use_dask == "True":
         client = get_dask_Client(threads_per_worker=1,
-                             processes=True,
-                             memory_limit=32 * 1024 * 1024 * 1024,
-                             n_workers=8)
+                                 processes=True,
+                                 memory_limit=32 * 1024 * 1024 * 1024,
+                                 n_workers=8)
         arlexecute.set_client(client=client)
         print(arlexecute.client)
     else:
@@ -145,6 +147,9 @@ if __name__ == '__main__':
     emitter_power = args.emitter_power
     print("Emitter is %.1f kW at location %s" % (1e-3 * emitter_power, emitter_location.geodetic))
     
+    if args.noise:
+        print("Adding noise to simulated data")
+        
     rmax = args.rmax
     low = create_named_configuration('LOWR3', rmax=rmax)
     nants = len(low.names)
@@ -159,7 +164,7 @@ if __name__ == '__main__':
     declination = args.declination
     phasecentre = SkyCoord(ra=+0.0 * u.deg, dec=declination * u.deg, frame='icrs', equinox='J2000')
     pole = SkyCoord(ra=+0.0 * u.deg, dec=-90.0 * u.deg, frame='icrs', equinox='J2000')
-
+    
     # Number of integrations in a time chunk
     nintegrations_per_chunk = args.nintegrations_per_chunk
     # Integration time within a chunk
@@ -170,14 +175,14 @@ if __name__ == '__main__':
     average_integration_time = time_average * integration_time
     print("Each chunk has %d integrations of duration %.2f (s)" %
           (args.nintegrations_per_chunk, integration_time))
-
+    
     frequency = numpy.linspace(args.frequency_range[0], args.frequency_range[1], args.nchannels_per_chunk)
     channel_bandwidth = (frequency[-1] - frequency[0]) / (args.nchannels_per_chunk - 1)
     channel_average = args.channel_average
     print("Each chunk has %d frequency channels of width %.3f (MHz)" %
           (args.nchannels_per_chunk, channel_bandwidth * 1e-6))
     channel_bandwidth = numpy.ones_like(frequency) * channel_bandwidth
-
+    
     start_times = numpy.arange(args.time_range[0] * 3600.0, args.time_range[1] * 3600.0,
                                nintegrations_per_chunk * integration_time)
     print("Start times", start_times)
@@ -186,22 +191,35 @@ if __name__ == '__main__':
     
     chunk_start_times = [start_times[i:i + args.ngroup_visibility]
                          for i in range(0, len(start_times), args.ngroup_visibility)]
-    print("Chunk start times", chunk_start_times)
-
+    print("Chunk start times", [c[0] for c in chunk_start_times])
+    
     dopsf = args.do_psf == "True"
-
+    
     # Find the average frequencies
     averaged_frequency = numpy.array(average_chunks(frequency, numpy.ones_like(frequency), channel_average))[0]
-    averaged_channel_bandwidth, wts = numpy.array(
-        average_chunks(channel_bandwidth, numpy.ones_like(frequency), channel_average))
-    averaged_channel_bandwidth *= wts
-
-    print("Processing %d time chunks in groups of %d" % (len(start_times), args.ngroup_visibility))
+    step = abs(averaged_frequency[-1] - averaged_frequency[0]) / (len(averaged_frequency)-1)
+    averaged_channel_bandwidth = step * numpy.ones_like(averaged_frequency)
+    
     print("Each averaged chunk has %d integrations of duration %.2f (s)" %
           (nintegrations_per_chunk // time_average, time_average * integration_time))
     print("Each averaged chunk has %d channels of width %.3f (MHz)" %
           (len(averaged_frequency), 1e-6 * averaged_channel_bandwidth[0]))
+    print("Processing %d time chunks in groups of %d" % (len(start_times), args.ngroup_visibility))
 
+    cellsize = 1e-4 * (rmax / 3000.0)
+    model_graph = arlexecute.execute(create_image)(cellsize=cellsize, npixel=npixel,
+                                                   frequency=averaged_frequency,
+                                                   channel_bandwidth=averaged_channel_bandwidth,
+                                                   phasecentre=phasecentre,
+                                                   polarisation_frame=PolarisationFrame(
+                                                       "stokesI"))
+    pole_model_graph = arlexecute.execute(create_image)(cellsize=cellsize, npixel=npixel,
+                                                        frequency=averaged_frequency,
+                                                        channel_bandwidth=averaged_channel_bandwidth,
+                                                        phasecentre=pole,
+                                                        polarisation_frame=PolarisationFrame(
+                                                            "stokesI"))
+    
     # We process the chunks (and accumulate the images) in two stages to avoid a large final reduction
     for chunk_start_time in chunk_start_times:
         chunk_results = list()
@@ -221,28 +239,16 @@ if __name__ == '__main__':
                                                                 emitter_location=emitter_location,
                                                                 emitter_power=emitter_power)
             
-            # Convert blockvisibility to imaging-specific visibility
+            # Convert BlockVisibility to imaging-specific Visibility
             vis_graph = arlexecute.execute(convert_blockvisibility_to_visibility)(bvis_graph)
             
             # Define the images and make the dirty images
-            cellsize =1e-4 * (rmax/3000.0)
-            model_graph = arlexecute.execute(create_image_from_visibility)(vis_graph, cellsize=cellsize, npixel=npixel,
-                                                                           nchan=len(averaged_frequency),
-                                                                           frequency=averaged_frequency,
-                                                                           phasecentre=phasecentre,
-                                                                           polarisation_frame=PolarisationFrame(
-                                                                               "stokesI"))
-            result = invert_list_arlexecute_workflow([vis_graph], [model_graph], context='2d', dopsf=dopsf)[0]
-            chunk_results.append(result)
-            
-            pole_model_graph = arlexecute.execute(create_image_from_visibility)(vis_graph, cellsize=cellsize, npixel=npixel,
-                                                                                nchan=len(averaged_frequency),
-                                                                                frequency=averaged_frequency,
-                                                                                phasecentre=pole,
-                                                                                polarisation_frame=PolarisationFrame(
-                                                                                    "stokesI"))
-            pole_result = invert_list_arlexecute_workflow([vis_graph], [pole_model_graph], context='2d', dopsf=dopsf)[0]
-            chunk_pole_results.append(pole_result)
+            result = invert_list_arlexecute_workflow([vis_graph], [model_graph],
+                                                     context='2d', dopsf=dopsf)
+            chunk_results.append(result[0])
+            result = invert_list_arlexecute_workflow([vis_graph], [pole_model_graph],
+                                                     context='2d', dopsf=dopsf)
+            chunk_pole_results.append(result[0])
         
         # Sum over results over this chunk
         chunk_final_result = arlexecute.execute(sum_invert_results)(chunk_results)
@@ -255,9 +261,6 @@ if __name__ == '__main__':
     final_result = arlexecute.execute(sum_invert_results)(results)
     dirty, sumwt = arlexecute.compute(final_result, sync=True)
     
-    final_pole_result = arlexecute.execute(sum_invert_results)(pole_results)
-    pole_dirty, pole_sumwt = arlexecute.compute(final_pole_result, sync=True)
-    
     # We are done! make plots and fits files
     type = 'dirty'
     if dopsf:
@@ -266,21 +269,26 @@ if __name__ == '__main__':
     if args.write_fits == "True":
         imagename = "simulate_rfi_%.1f_%s.fits" % (declination, type)
         export_image_to_fits(dirty, imagename)
-        
+    
     plt.clf()
     show_image(dirty, chan=len(frequency) // channel_average // 2)
-    plt.tight_layout()
     plotname = "simulate_rfi_%.1f_%s.png" % (declination, type)
+    plt.title('Image of the target field')
+    plt.tight_layout()
     plt.savefig(plotname)
     plt.show(block=False)
-    
+
+    final_pole_result = arlexecute.execute(sum_invert_results)(pole_results)
+    pole_dirty, pole_sumwt = arlexecute.compute(final_pole_result, sync=True)
+
     if args.write_fits == "True":
         imagename = "simulate_rfi_pole_%s.fits" % (type)
         export_image_to_fits(pole_dirty, imagename)
-        
+    
     plt.clf()
     show_image(pole_dirty, chan=len(frequency) // channel_average // 2)
-    plt.tight_layout()
     plotname = "simulate_rfi_pole_%s.png" % (type)
+    plt.title('Image of the southern celestial pole')
+    plt.tight_layout()
     plt.savefig(plotname)
     plt.show(block=False)
