@@ -2,7 +2,7 @@
 """ Power spectrum for an image, adapted from Fred Dulwich code
 """
 import pprint
-
+import os
 import astropy.constants as consts
 import matplotlib.pyplot as plt
 import numpy
@@ -21,6 +21,8 @@ def radial_profile(image, centre=None):
 
 
 if __name__ == '__main__':
+    
+    basename = os.path.basename(os.getcwd())
     
     pp = pprint.PrettyPrinter()
     
@@ -50,10 +52,12 @@ if __name__ == '__main__':
     
     plt.clf()
     show_image(im, chan=signal_channel)
+    plt.title('Signal image %s' % (basename))
     plt.savefig('simulation_image_channel_%d.png' % signal_channel)
     plt.show()
     plt.clf()
     show_image(im, chan=noise_channel)
+    plt.title('Noise image %s' % (basename))
     plt.savefig('simulation_noise_channel_%d.png' % signal_channel)
     plt.show()
 
@@ -69,7 +73,7 @@ if __name__ == '__main__':
     im_spectrum.data = kperjy.value * numpy.abs(imfft.data)
     plt.clf()
     show_image(im_spectrum, chan=signal_channel, vmax=0.01 * numpy.max(im_spectrum.data[signal_channel,...]))
-    plt.gca().set_title("Amplitude(FFT(image))")
+    plt.gca().set_title("Amplitude(FFT(image)) %s" % (basename))
     plt.tight_layout()
     plt.savefig('power_spectrum_image_channel_%d.png' % signal_channel)
     plt.show()
@@ -77,7 +81,7 @@ if __name__ == '__main__':
     if noisy:
         plt.clf()
         show_image(im_spectrum, chan=noise_channel, vmax=0.01 * numpy.max(im_spectrum.data[noise_channel,...]))
-        plt.gca().set_title("Amplitude(FFT(noise))")
+        plt.gca().set_title("Amplitude(FFT(noise)) %s" % (basename))
         plt.tight_layout()
         plt.savefig('power_spectrum_image_noise_channel_%d.png' % signal_channel)
         plt.show()
@@ -93,9 +97,9 @@ if __name__ == '__main__':
     plt.plot(theta_axis, profile, color='blue', label='signal')
     if noisy:
         plt.plot(theta_axis, noise_profile, color='red', label='noise')
-    plt.gca().set_title("Power spectrum of image")
+    plt.gca().set_title("Power spectrum of image %s" % (basename))
     plt.gca().legend()
-    plt.gca().set_xlabel(r"$\theta^{-1}$")
+    plt.gca().set_xlabel(r"$\theta$")
     plt.gca().set_ylabel(r"$K^2$")
     plt.gca().set_xscale('log')
     plt.gca().set_yscale('log')
