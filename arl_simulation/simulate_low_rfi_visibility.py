@@ -40,7 +40,7 @@ from wrappers.arlexecute.visibility.coalesce import convert_blockvisibility_to_v
 
 def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre, polarisation_frame,
                        time_average, channel_average, attenuation, noise,
-                       emitter_location, emitter_power):
+                       emitter_location, emitter_power, use_pole):
     averaged_frequency = numpy.array(average_chunks(frequency, numpy.ones_like(frequency), channel_average))[0]
     averaged_channel_bandwidth, wts = numpy.array(
         average_chunks(channel_bandwidth, numpy.ones_like(frequency), channel_average))
@@ -55,7 +55,7 @@ def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre,
                                   zerow=False)
     
     bvis = simulate_rfi_block(bvis, emitter_location=emitter_location,
-                              emitter_power=emitter_power, attenuation=attenuation)
+                              emitter_power=emitter_power, attenuation=attenuation, use_pole=use_pole)
     
     averaged_bvis = create_blockvisibility(config, s2r * averaged_times, averaged_frequency,
                                            channel_bandwidth=averaged_channel_bandwidth,
@@ -126,7 +126,9 @@ if __name__ == '__main__':
     parser.add_argument('--emitter_longitude', type=float, default=115.8605, help="Emitter longitude")
     parser.add_argument('--emitter_latitude', type=float, default=-31.9505, help="Emitter latitude")
     parser.add_argument('--emitter_power', type=float, default=5e4, help="Emitter power (W)]")
-    
+
+    parser.add_argument('--use_pole', type=str, default="False", help='Set RFI source at pole?')
+
     args = parser.parse_args()
     print("Starting LOW low level RFI simulation")
     
@@ -147,8 +149,17 @@ if __name__ == '__main__':
     emitter_power = args.emitter_power
     print("Emitter is %.1f kW at location %s" % (1e-3 * emitter_power, emitter_location.geodetic))
     
-    if args.noise:
+    if args.noise == "True":
+        noise = True
         print("Adding noise to simulated data")
+    else:
+        noise = False
+        
+    if args.use_pole == "True":
+        print("Placing emitter at the southern celestial pole")
+        use_pole= True
+    else:
+        use_pole = False
         
     rmax = args.rmax
     low = create_named_configuration('LOWR3', rmax=rmax)
@@ -206,7 +217,7 @@ if __name__ == '__main__':
           (len(averaged_frequency), 1e-6 * averaged_channel_bandwidth[0]))
     print("Processing %d time chunks in groups of %d" % (len(start_times), args.ngroup_visibility))
 
-    cellsize = 1e-4 * (rmax / 3000.0)
+    cellsize = 1e-4 * (3000.0 / rmax)
     model_graph = arlexecute.execute(create_image)(cellsize=cellsize, npixel=npixel,
                                                    frequency=averaged_frequency,
                                                    channel_bandwidth=averaged_channel_bandwidth,
@@ -235,9 +246,10 @@ if __name__ == '__main__':
                                                                 time_average=time_average,
                                                                 channel_average=channel_average,
                                                                 attenuation=args.attenuation,
-                                                                noise=args.noise == 'True',
+                                                                noise=noise,
                                                                 emitter_location=emitter_location,
-                                                                emitter_power=emitter_power)
+                                                                emitter_power=emitter_power,
+                                                                use_pole=use_pole)
             
             # Convert BlockVisibility to imaging-specific Visibility
             vis_graph = arlexecute.execute(convert_blockvisibility_to_visibility)(bvis_graph)
