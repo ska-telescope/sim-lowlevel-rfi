@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import numpy
 from astropy import units as u
 from astropy.coordinates import SkyCoord, EarthLocation
+import astropy.constants as const
 
 from data_models.polarisation import PolarisationFrame
 from processing_components.simulation.rfi import calculate_averaged_correlation, simulate_rfi_block
@@ -36,6 +37,16 @@ from wrappers.arlexecute.simulation.configurations import create_named_configura
 from wrappers.arlexecute.simulation.noise import addnoise_visibility
 from wrappers.arlexecute.visibility.base import create_blockvisibility
 from wrappers.arlexecute.visibility.coalesce import convert_blockvisibility_to_visibility
+
+def add_noise(bvis):
+    # The specified sensitivity (effective area / T_sys) is roughly 610 m ^ 2 / K in the range 160 - 200MHz
+    # sigma_vis = 2 k T_sys / (area * sqrt(tb)) = 2 k 512 / (610 * sqrt(tb)
+    sens = 610
+    bt = bvis.channel_bandwidth[0] * bvis.integration_time[0]
+    sigma = 2 * 1e26 * const.k_B.value / ((sens/512) * (numpy.sqrt(bt)))
+    sshape = bvis.vis.shape
+    bvis.data['vis'] += numpy.random.normal(0.0, sigma, sshape) + 1j * numpy.random.normal(0.0, sigma, sshape)
+    return bvis
 
 
 def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre, polarisation_frame,
@@ -80,7 +91,7 @@ def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre,
     del bvis
     
     if noise:
-        averaged_bvis = addnoise_visibility(averaged_bvis, t_sys=200.0)
+        averaged_bvis = add_noise(averaged_bvis)
     
     return averaged_bvis
 
@@ -217,7 +228,7 @@ if __name__ == '__main__':
           (len(averaged_frequency), 1e-6 * averaged_channel_bandwidth[0]))
     print("Processing %d time chunks in groups of %d" % (len(start_times), args.ngroup_visibility))
 
-    cellsize = 1e-4 * (3000.0 / rmax)
+    cellsize = 1.5e-4 * (3000.0 / rmax)
     model_graph = arlexecute.execute(create_image)(cellsize=cellsize, npixel=npixel,
                                                    frequency=averaged_frequency,
                                                    channel_bandwidth=averaged_channel_bandwidth,
