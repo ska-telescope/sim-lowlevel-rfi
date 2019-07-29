@@ -17,3 +17,5 @@ simulation9: use_pole=False, station_ship=2, high SNR
 simulation10: use_pole=False, low SNR
 simulation11: station_skip=1
 simulation12: station_skip=1, more integration
+
+Sim12 is closest to complete. Can now proceed to next step of target simulations.
