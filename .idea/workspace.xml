@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32b8ab0c-c1dd-4419-beed-b9d360218d57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../algorithm-reference-library/processing_components/simulation/testing_support.py" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithm-reference-library/processing_components/simulation/testing_support.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../algorithm-reference-library/processing_components/simulation/noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithm-reference-library/processing_components/simulation/noise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sim-lowlevel-rfi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sim-lowlevel-rfi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arl_simulation/exploratory_simulations/simulation13/submit_p3.slurm" beforeDir="false" afterPath="$PROJECT_DIR$/arl_simulation/exploratory_simulations/simulation13/submit_p3.slurm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arl_simulation/simulate_low_rfi_visibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/arl_simulation/simulate_low_rfi_visibility.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,16 +33,12 @@
     <expand />
     <select />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>cartesian</find>
-      <find>add_noise</find>
-      <find>np.</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>numpy.</replace>
-    </replaceStrings>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +48,12 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/FM_station" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/arl_simulation/exploratory_simulations/simulation13" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -81,10 +87,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FM_station" />
+      <recent name="$PROJECT_DIR$/arl_simulation/exploratory_simulations/simulation13" />
       <recent name="$PROJECT_DIR$/arl_simulation" />
+      <recent name="$PROJECT_DIR$/arl_simulation/tim_MBP" />
+      <recent name="$PROJECT_DIR$/arl_simulation/sheldon_simulations" />
+      <recent name="$PROJECT_DIR$/arl_simulation/exploratory_simulations/simulation12" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/arl_simulation/exploratory_simulations" />
       <recent name="$PROJECT_DIR$/DTV" />
       <recent name="$PROJECT_DIR$/contrib" />
     </key>
@@ -101,52 +111,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.generate_DTV_interference">
-    <configuration name="generate_DTV_interference" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="sim-lowlevel-rfi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FM_station" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DTV/generate_DTV_interference.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="generate_interference" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="sim-lowlevel-rfi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FM_station" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FM_station/generate_FM_interference.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="low_rfi_simulation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.simulate_low_rfi_visibility">
+    <configuration name="perth_azel" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="sim-lowlevel-rfi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,7 +125,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arl_simulation/low_rfi_simulation.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arl_simulation/perth_azel.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -168,7 +134,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="read_generate_FM_signals (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="plotuv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="sim-lowlevel-rfi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -176,12 +142,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FM_station" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/arl_simulation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FM_station/read_generate_FM_signals.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arl_simulation/plotuv.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,7 +156,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="read_generate_FM_signals" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="power_spectrum" type="PythonConfigurationType" factoryName="Python">
       <module name="sim-lowlevel-rfi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -198,13 +164,79 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FM_station" />
+      <option name="WORKING_DIRECTORY" value="/System/Volumes/Data/Users/timcornwell/Code/sim-lowlevel-rfi/arl_simulation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/contrib/read_generate_FM_signals.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arl_simulation/power_spectrum.py" />
+      <option name="PARAMETERS" value="--image simulate_rfi_-45.0_dirty.fits" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="power_spectrum_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="sim-lowlevel-rfi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="/System/Volumes/Data/Users/timcornwell/Code/sim-lowlevel-rfi/arl_simulation/exploratory_simulations/simulation4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arl_simulation/power_spectrum_test.py" />
+      <option name="PARAMETERS" value="simulate_rfi_-45.0_dirty.fits" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="simulate_low_rfi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="sim-lowlevel-rfi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/arl_simulation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arl_simulation/simulate_low_rfi.py" />
+      <option name="PARAMETERS" value="--station_skip 33" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="simulate_low_rfi_visibility" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="sim-lowlevel-rfi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/arl_simulation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arl_simulation/simulate_low_rfi_visibility.py" />
+      <option name="PARAMETERS" value="--rmax 2500 --npixel 1024 --station_skip 11 --noise True --use_agg True --declination -45 --ngroup_visibility 16 --time_range -6.0 6.0 --integration_time 1.0 --nintegrations_per_chunk 120 --time_average 120 --frequency_range 170.5e6 184.5e6 --nchannels_per_chunk 120 --channel_average 30 --use_dask True --attenuation 2e-5 --time_range -6.0 6.0 --use_pole False --declination -45" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -213,21 +245,32 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.low_rfi_simulation" />
-      <item itemvalue="Python.read_generate_FM_signals" />
-      <item itemvalue="Python.read_generate_FM_signals (1)" />
-      <item itemvalue="Python.generate_interference" />
-      <item itemvalue="Python.generate_DTV_interference" />
+      <item itemvalue="Python.power_spectrum" />
+      <item itemvalue="Python.simulate_low_rfi_visibility" />
+      <item itemvalue="Python.simulate_low_rfi" />
+      <item itemvalue="Python.power_spectrum_test" />
+      <item itemvalue="Python.perth_azel" />
+      <item itemvalue="Python.plotuv" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.generate_DTV_interference" />
-        <item itemvalue="Python.generate_interference" />
-        <item itemvalue="Python.read_generate_FM_signals (1)" />
-        <item itemvalue="Python.read_generate_FM_signals" />
-        <item itemvalue="Python.low_rfi_simulation" />
+        <item itemvalue="Python.simulate_low_rfi_visibility" />
+        <item itemvalue="Python.plotuv" />
+        <item itemvalue="Python.perth_azel" />
+        <item itemvalue="Python.power_spectrum_test" />
+        <item itemvalue="Python.simulate_low_rfi" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -242,7 +285,16 @@
       <workItem from="1561646831739" duration="12558000" />
       <workItem from="1561727447882" duration="33546000" />
       <workItem from="1562316890373" duration="7688000" />
-      <workItem from="1563475709000" duration="515000" />
+      <workItem from="1563475709000" duration="17443000" />
+      <workItem from="1563633789936" duration="2076000" />
+      <workItem from="1563703461450" duration="12173000" />
+      <workItem from="1563873257635" duration="143000" />
+      <workItem from="1563873427496" duration="56475000" />
+      <workItem from="1564070472218" duration="3739000" />
+      <workItem from="1564132694382" duration="1803000" />
+      <workItem from="1564134612107" duration="4487000" />
+      <workItem from="1564139771554" duration="8491000" />
+      <workItem from="1564149893860" duration="54928000" />
     </task>
     <servers />
   </component>
@@ -254,7 +306,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -283,6 +337,11 @@
           <line>36</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../algorithm-reference-library/processing_components/simulation/noise.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -294,10 +353,16 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$simulate_low_rfi.coverage" NAME="simulate_low_rfi Coverage Results" MODIFIED="1563873329145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arl_simulation" />
+    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$power_spectrum.coverage" NAME="power_spectrum Coverage Results" MODIFIED="1564301694829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/System/Volumes/Data/Users/timcornwell/Code/sim-lowlevel-rfi/arl_simulation" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$generate_DTV_interference.coverage" NAME="generate_DTV_interference Coverage Results" MODIFIED="1562600614956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FM_station" />
+    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$plotuv.coverage" NAME="plotuv Coverage Results" MODIFIED="1564327748903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arl_simulation" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$read_generate_FM_signals.coverage" NAME="read_generate_FM_signals Coverage Results" MODIFIED="1562006759749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/contrib" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$read_generate_FM_signals__1_.coverage" NAME="read_generate_FM_signals (1) Coverage Results" MODIFIED="1562165600681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FM_station" />
+    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$perth_azel.coverage" NAME="perth_azel Coverage Results" MODIFIED="1564158648839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arl_simulation" />
+    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$simulate_low_rfi_visibility.coverage" NAME="simulate_low_rfi_visibility Coverage Results" MODIFIED="1564415580350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arl_simulation" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$low_rfi_simulation.coverage" NAME="low_rfi_simulation Coverage Results" MODIFIED="1561966641302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arl_simulation" />
+    <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$power_spectrum_test.coverage" NAME="power_spectrum_test Coverage Results" MODIFIED="1564143625707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/System/Volumes/Data/Users/timcornwell/Code/sim-lowlevel-rfi/arl_simulation/exploratory_simulations/simulation4" />
     <SUITE FILE_PATH="coverage/sim_lowlevel_rfi$generate_interference.coverage" NAME="generate_interference Coverage Results" MODIFIED="1562325679967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FM_station" />
   </component>
   <component name="debuggerHistoryManager">

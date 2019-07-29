@@ -1,0 +1,1009 @@
+PYTHONPATH is /alaska/tim/Code/algorithm-reference-library/::/alaska/tim/Code/algorithm-reference-library/
+Running python: /alaska/tim/alaska-venv/bin/python
+Running dask-scheduler: /alaska/tim/alaska-venv/bin/dask-scheduler
+Changed directory to /alaska/tim/Code/sim-lowlevel-rfi/arl_simulation/exploratory_simulations/simulation12.
+
+openhpc-compute-[0-9,11-15]
+Working on openhpc-compute-0 ....
+run dask-scheduler
+run dask-worker
+Working on openhpc-compute-1 ....
+run dask-worker
+Working on openhpc-compute-2 ....
+run dask-worker
+distributed.scheduler - INFO - -----------------------------------------------
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.14:33731'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.14:36286'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.14:40236'
+Working on openhpc-compute-3 ....
+run dask-worker
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-krnxum51', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-ot64fh7l', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-wjk7wcon', purging
+Working on openhpc-compute-4 ....
+run dask-worker
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.19:36085'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.19:34745'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.19:41856'
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-a9r3da2q', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-vp6si_7c', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-wta5ntgv', purging
+Working on openhpc-compute-5 ....
+run dask-worker
+ssh_exchange_identification: read: Connection reset by peer
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.38:40316'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.38:41775'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.38:39300'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.23:43698'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.23:45929'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.23:46816'
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-otwwmhui', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-x_zqu99d', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-8wxy7ekc', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-_bv0xapc', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-t7_yqhkv', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-4bmlha2p', purging
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.39:35534'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.39:43630'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.39:35894'
+Working on openhpc-compute-6 ....
+run dask-worker
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-2enm5yb_', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-f8w3j4um', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-4d2bp27u', purging
+Working on openhpc-compute-7 ....
+run dask-worker
+distributed.scheduler - INFO - Clear task state
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.14:43420
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.14:35766
+distributed.dashboard.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: pip install jupyter-server-proxy
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.14:34951
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.14:35766
+distributed.worker - INFO -          dashboard at:         10.60.253.14:33864
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.14:43420
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.14:34951
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -          dashboard at:         10.60.253.14:43253
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -          dashboard at:         10.60.253.14:33889
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -       Local Directory:       /tmp/worker-8vmmmph2
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-2yqigk6q
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-oyyfqpne
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.scheduler - INFO -   Scheduler at:   tcp://10.60.253.14:8786
+distributed.scheduler - INFO -   dashboard at:                     :8787
+distributed.scheduler - INFO - Local Directory:    /tmp/scheduler-czv9lvqh
+distributed.scheduler - INFO - -----------------------------------------------
+distributed.scheduler - INFO - Register tcp://10.60.253.14:35766
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.14:35766
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.14:43420
+distributed.scheduler - INFO - Register tcp://10.60.253.14:34951
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.14:43420
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.14:34951
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.23:36227
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.23:43459
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.23:39608
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.23:43459
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.23:36227
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.23:39608
+distributed.worker - INFO -          dashboard at:         10.60.253.23:43621
+distributed.worker - INFO -          dashboard at:         10.60.253.23:43558
+distributed.scheduler - INFO - Register tcp://10.60.253.23:43459
+distributed.worker - INFO -          dashboard at:         10.60.253.23:41603
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-bgmqxvsk
+distributed.worker - INFO -       Local Directory:       /tmp/worker-cy471kjg
+distributed.worker - INFO -       Local Directory:       /tmp/worker-3cwwrjeg
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.23:39608
+distributed.scheduler - INFO - Register tcp://10.60.253.23:36227
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.23:43459
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.23:39608
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.23:36227
+distributed.core - INFO - Starting established connection
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.18:33020'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.18:35588'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.18:33507'
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-aarpdfkr', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-1wu45yur', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-dwbpal00', purging
+Working on openhpc-compute-8 ....
+run dask-worker
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.39:41506
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.39:36338
+distributed.scheduler - INFO - Register tcp://10.60.253.39:41506
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.39:41506
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.39:36338
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.39:44313
+distributed.worker - INFO -          dashboard at:         10.60.253.39:41286
+distributed.worker - INFO -          dashboard at:         10.60.253.39:43404
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.39:44313
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -          dashboard at:         10.60.253.39:43561
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-1c8_rd4m
+distributed.worker - INFO -       Local Directory:       /tmp/worker-0vhx9z4x
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -       Local Directory:       /tmp/worker-_r3kwjrs
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.39:44313
+distributed.scheduler - INFO - Register tcp://10.60.253.39:36338
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.39:41506
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.39:44313
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.39:36338
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.19:33396
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.19:36313
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.19:45128
+distributed.scheduler - INFO - Register tcp://10.60.253.19:33396
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.19:45128
+distributed.worker - INFO -          dashboard at:         10.60.253.19:43061
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.19:33396
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.19:36313
+distributed.worker - INFO -          dashboard at:         10.60.253.19:33652
+distributed.worker - INFO -          dashboard at:         10.60.253.19:39876
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-4iwi6ggz
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-04h5jhuj
+distributed.worker - INFO -       Local Directory:       /tmp/worker-tl9bxnf5
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.19:36313
+distributed.scheduler - INFO - Register tcp://10.60.253.19:45128
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.19:33396
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.19:36313
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.19:45128
+distributed.core - INFO - Starting established connection
+Working on openhpc-compute-9 ....
+run dask-worker
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.41:44729'
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.38:36204
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.38:45801
+distributed.scheduler - INFO - Register tcp://10.60.253.38:35204
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.41:40431'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.41:37774'
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.38:35204
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.38:36204
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.38:35204
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.38:45801
+distributed.worker - INFO -          dashboard at:         10.60.253.38:46463
+distributed.worker - INFO -          dashboard at:         10.60.253.38:39438
+distributed.worker - INFO -          dashboard at:         10.60.253.38:37228
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-k9ghp5u5
+distributed.worker - INFO -       Local Directory:       /tmp/worker-gxuo2r3a
+distributed.worker - INFO -       Local Directory:       /tmp/worker-8tyjqlsb
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.38:45801
+distributed.scheduler - INFO - Register tcp://10.60.253.38:36204
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.38:35204
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.38:45801
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.38:36204
+distributed.core - INFO - Starting established connection
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-ckz41g55', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-dc1qsfns', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-qytscuyk', purging
+Working on openhpc-compute-11 ....
+run dask-worker
+Working on openhpc-compute-12 ....
+run dask-worker
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.33:39275'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.33:37000'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.33:42042'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.55:39933'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.55:34945'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.55:45109'
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.18:36544
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.18:36544
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.18:39290
+distributed.scheduler - INFO - Register tcp://10.60.253.18:39290
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.18:42972
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.18:39290
+distributed.worker - INFO -          dashboard at:         10.60.253.18:41321
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.18:42972
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -          dashboard at:         10.60.253.18:42298
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          dashboard at:         10.60.253.18:34539
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-txwzmsz7
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-s1v_lamg
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -       Local Directory:       /tmp/worker-vwyp76nb
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-h508zlfu', purging
+distributed.scheduler - INFO - Register tcp://10.60.253.18:42972
+distributed.scheduler - INFO - Register tcp://10.60.253.18:36544
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.18:39290
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.18:42972
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.18:36544
+distributed.core - INFO - Starting established connection
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-1oiee0cv', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-ztp70v85', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-9ttp4i0n', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-fqd38ol3', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-9c07_o2l', purging
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.36:33053'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.36:40804'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.36:38687'
+Working on openhpc-compute-13 ....
+run dask-worker
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.41:39745
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.41:44645
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.41:39745
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.41:44645
+distributed.worker - INFO -          dashboard at:         10.60.253.41:41839
+distributed.worker - INFO -          dashboard at:         10.60.253.41:45007
+distributed.scheduler - INFO - Register tcp://10.60.253.41:39745
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.41:37413
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.41:37413
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          dashboard at:         10.60.253.41:35849
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-jdj5er3g
+distributed.worker - INFO -       Local Directory:       /tmp/worker-g91fl5us
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-v7ssmr2q
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.41:37413
+distributed.scheduler - INFO - Register tcp://10.60.253.41:44645
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.41:39745
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.41:37413
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.41:44645
+distributed.core - INFO - Starting established connection
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-hsjzelbk', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-n8jfapqk', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-sdthw_ob', purging
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.51:46270'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.51:46644'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.51:36457'
+Working on openhpc-compute-14 ....
+run dask-worker
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-sbk794_m', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-pif5o6d4', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-u6g592k0', purging
+Working on openhpc-compute-15 ....
+run dask-worker
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.36:44406
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.36:32939
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.36:46241
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.36:44406
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.36:32939
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.36:46241
+distributed.worker - INFO -          dashboard at:         10.60.253.36:43130
+distributed.worker - INFO -          dashboard at:         10.60.253.36:41516
+distributed.worker - INFO -          dashboard at:         10.60.253.36:38128
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.scheduler - INFO - Register tcp://10.60.253.36:46241
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-oz5fi2_y
+distributed.worker - INFO -       Local Directory:       /tmp/worker-gcczfj6o
+distributed.worker - INFO -       Local Directory:       /tmp/worker-pqzf9vn_
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.36:32939
+distributed.scheduler - INFO - Register tcp://10.60.253.36:44406
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.36:46241
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.36:32939
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.36:44406
+distributed.core - INFO - Starting established connection
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.37:37352'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.37:40147'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.37:33364'
+Scheduler and workers now running
+Scheduler is running at openhpc-compute-0
+About to execute python ../../simulate_low_rfi_visibility.py --rmax 2000 --npixel 1024 --station_skip 1 --noise True --use_pole False --attenuation 2e-5  --use_agg True --declination -45 --ngroup_visibility
+15 --nintegrations_per_chunk 60 --nchannels_per_chunk 240 --time_average 60 --channel_average 60 --integration_time 0.2 --frequency_range 170.5e6 184.5e6 --use_pole False | tee simulate_low_rfi_visibility.log
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.12:37199'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.12:36401'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.12:38419'
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-f94nk_us', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-lwhnah9s', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-cdu7o6xc', purging
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.51:43411
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.51:37906
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.51:43157
+distributed.scheduler - INFO - Register tcp://10.60.253.51:43157
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.51:43411
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.51:37906
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.51:43157
+distributed.worker - INFO -          dashboard at:         10.60.253.51:40445
+distributed.worker - INFO -          dashboard at:         10.60.253.51:39775
+distributed.worker - INFO -          dashboard at:         10.60.253.51:42216
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-ms5y58qq
+distributed.worker - INFO -       Local Directory:       /tmp/worker-xxaa553l
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-yzvkd444
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.51:43157
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.51:43411
+distributed.scheduler - INFO - Register tcp://10.60.253.51:37906
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.51:43411
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.51:37906
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.55:46647
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.55:44185
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.55:46647
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.55:36566
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.55:44185
+distributed.worker - INFO -          dashboard at:         10.60.253.55:40861
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.55:36566
+distributed.scheduler - INFO - Register tcp://10.60.253.55:46647
+distributed.worker - INFO -          dashboard at:         10.60.253.55:42703
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -          dashboard at:         10.60.253.55:42961
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-ludcrc0h
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -       Local Directory:       /tmp/worker-98os8neb
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-gcc04ef9
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.55:44185
+distributed.scheduler - INFO - Register tcp://10.60.253.55:36566
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.55:46647
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.55:44185
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.55:36566
+distributed.core - INFO - Starting established connection
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-_nvb_r0y', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-6bt414i5', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-d53fn6rl', purging
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.33:40477
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.33:44791
+distributed.scheduler - INFO - Register tcp://10.60.253.33:44791
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.33:40477
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.33:44791
+distributed.worker - INFO -          dashboard at:         10.60.253.33:43232
+distributed.worker - INFO -          dashboard at:         10.60.253.33:46145
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.33:35932
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.33:35932
+distributed.worker - INFO -          dashboard at:         10.60.253.33:41240
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-mnixqomp
+distributed.worker - INFO -       Local Directory:       /tmp/worker-lczu2vbw
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-b5731_i_
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.33:40477
+distributed.scheduler - INFO - Register tcp://10.60.253.33:35932
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.33:44791
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.33:40477
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.33:35932
+distributed.core - INFO - Starting established connection
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.13:46744'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.13:46248'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.60.253.13:43738'
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-v5ba8xts', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-sgox7kye', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/tmp/worker-mqpl3jw7', purging
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.37:39490
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.37:32844
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.37:39490
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.37:32844
+distributed.scheduler - INFO - Register tcp://10.60.253.37:39490
+distributed.worker - INFO -          dashboard at:         10.60.253.37:45463
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.37:42023
+distributed.worker - INFO -          dashboard at:         10.60.253.37:40527
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.37:42023
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          dashboard at:         10.60.253.37:33268
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-gvp954bh
+distributed.worker - INFO -       Local Directory:       /tmp/worker-vpnadvnd
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-v98itkbz
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.37:42023
+distributed.scheduler - INFO - Register tcp://10.60.253.37:32844
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.37:39490
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.37:42023
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.37:32844
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.12:37340
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.12:42534
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.12:37340
+distributed.scheduler - INFO - Register tcp://10.60.253.12:42534
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.12:45217
+distributed.worker - INFO -          dashboard at:         10.60.253.12:37038
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.12:42534
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.12:45217
+distributed.worker - INFO -          dashboard at:         10.60.253.12:35341
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -          dashboard at:         10.60.253.12:43990
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-hotf3fyy
+distributed.worker - INFO -       Local Directory:       /tmp/worker-af0zclyd
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-6y_5e0cg
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.scheduler - INFO - Register tcp://10.60.253.12:37340
+distributed.scheduler - INFO - Register tcp://10.60.253.12:45217
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.12:42534
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.12:37340
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.12:45217
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.13:39848
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.13:41202
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.13:39848
+distributed.worker - INFO -       Start worker at:   tcp://10.60.253.13:36094
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.13:41202
+distributed.scheduler - INFO - Register tcp://10.60.253.13:39848
+distributed.worker - INFO -          dashboard at:         10.60.253.13:44615
+distributed.worker - INFO -          Listening to:   tcp://10.60.253.13:36094
+distributed.worker - INFO -          dashboard at:         10.60.253.13:38990
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          dashboard at:         10.60.253.13:41535
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -       Local Directory:       /tmp/worker-zm4e21gc
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-f4ij38hc
+distributed.worker - INFO -                Memory:                  101.18 GB
+distributed.worker - INFO -       Local Directory:       /tmp/worker-bn669ibc
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.60.253.13:41202
+distributed.scheduler - INFO - Register tcp://10.60.253.13:36094
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.13:39848
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.13:41202
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.60.253.13:36094
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Receive client connection: Client-e30b8864-b109-11e9-b1b5-246e964883a8
+distributed.core - INFO - Starting established connection
+distributed.utils_perf - INFO - full garbage collection released 67.42 MB from 2897 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.62 MB from 2052 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 66.94 MB from 3392 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 69.66 MB from 957 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.43 MB from 833 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 888 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.41 MB from 835 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 1085 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.87 MB from 887 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.28 MB from 2369 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 170.78 MB from 1086 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 14.46 MB from 4612 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.67 MB from 5114 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.69 MB from 1023 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 139.35 MB from 1128 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 906 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 5.03 GB from 1087 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.42 MB from 967 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.39 MB from 1345 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.67 MB from 1091 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1045 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 101.14 MB from 1088 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.92 MB from 946 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 237.90 MB from 1038 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.95 MB from 1113 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 71.93 MB from 1178 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 101.14 MB from 961 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 204.07 MB from 2054 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 133.68 MB from 3145 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 101.14 MB from 2865 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 2682 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 137.11 MB from 3707 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.55 MB from 2921 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1275 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.67 MB from 1252 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.43 MB from 1220 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 1286 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 2821 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 2495 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1362 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 402.55 MB from 2153 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.02 MB from 3251 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 136.64 MB from 2824 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 2113 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 2113 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 201.35 MB from 2438 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1679 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 237.22 MB from 2554 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1394 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.27 MB from 1967 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.43 MB from 1520 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 238.25 MB from 1699 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 168.42 MB from 10285 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.43 MB from 1849 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.43 MB from 1615 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 69.52 MB from 2681 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 1810 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 264.81 MB from 3297 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 139.03 MB from 2547 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1754 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 2340 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 1739 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 201.35 MB from 1977 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 3093 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 301.17 MB from 3111 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 71.93 MB from 2037 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 357.04 MB from 2426 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 2043 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 2054 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 201.35 MB from 2504 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 170.82 MB from 1807 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 167.79 MB from 3202 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1664 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 3919 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 369.30 MB from 2055 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 136.95 MB from 2208 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 204.53 MB from 2006 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.43 MB from 2152 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 234.91 MB from 2124 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 166.73 MB from 2246 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1737 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.19 MB from 1846 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 27.88 MB from 2823 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 893.57 MB from 6009 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 206.47 MB from 2239 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 400.92 MB from 2417 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.70 MB from 1620 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 405.86 MB from 2317 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 536.88 MB from 2140 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.00 MB from 1344 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 66.99 MB from 1404 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.43 MB from 1344 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 663.52 MB from 2827 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 252.63 MB from 2087 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1757 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 141.89 MB from 1968 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 3558 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 206.78 MB from 1456 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 224.38 MB from 3138 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 2600 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 252.77 MB from 2202 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1678 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 105.48 MB from 3009 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.55 MB from 1708 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 136.95 MB from 1559 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 1403 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 69.52 MB from 2068 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.54 MB from 2049 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1474 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1212 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 159.12 MB from 2084 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 1646 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 1867 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 339.39 MB from 1102 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 167.79 MB from 2178 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 2482 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 1596 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 1261 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.71 MB from 1384 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1517 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 1765 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 363.94 MB from 1975 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1497 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 2781 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 44.15 MB from 1664 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.04 MB from 2827 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 2382 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 1765 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 69.52 MB from 1784 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 2853 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 201.35 MB from 1340 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 64.50 MB from 1823 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1585 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 302.03 MB from 2626 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 404.57 MB from 1275 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 201.35 MB from 2244 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.66 MB from 1712 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 201.35 MB from 2036 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 2101 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 141.41 MB from 3456 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 201.35 MB from 2187 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 168.57 MB from 1422 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 2040 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 302.03 MB from 1753 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 1955 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 234.91 MB from 3045 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 167.79 MB from 2665 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 167.79 MB from 1943 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 2416 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1987 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 1801 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 3255 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 59.06 MB from 2598 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 261.98 MB from 3151 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 1535 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 1789 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 2813 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 2968 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 2097 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 249.18 MB from 2632 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 107.89 MB from 2332 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1366 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 2491 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 599.72 MB from 1784 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1865 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 69.52 MB from 1602 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 2403 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 1976 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 2791 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 167.79 MB from 2139 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.54 MB from 1707 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1583 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 1960 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 2333 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 33.56 MB from 2543 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 167.79 MB from 1898 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 4000 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 303.43 MB from 1406 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.47 MB from 1787 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 134.23 MB from 2977 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 78.64 MB from 2262 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 35.96 MB from 1961 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 165.41 MB from 3235 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 2605 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 1610 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 71.93 MB from 2998 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 67.12 MB from 2252 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 199.25 MB from 2704 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 570.49 MB from 3367 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 100.68 MB from 2813 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 199.68 MB from 2074 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 114.88 MB from 2128 reference cycles (threshold: 10.00 MB)
+distributed.utils_perf - INFO - full garbage collection released 301.96 MB from 5699 reference cycles (threshold: 10.00 MB)
+Starting LOW low level RFI simulation
+Creating Dask Client using externally defined scheduler
+<Client: scheduler='tcp://10.60.253.14:8786' processes=42 cores=42>
+Emitter is 50.0 kW at location GeodeticLocation(lon=<Longitude 115.8605 deg>, lat=<Latitude -31.9505 deg>, height=<Quantity 0. m>)
+Adding noise to simulated data
+There are 297 stations
+There are 297 stations after decimation
+Each chunk has 60 integrations of duration 0.20 (s)
+Each chunk has 240 frequency channels of width 0.059 (MHz)
+Start times [-21600. -21588. -21576. ...  21564.  21576.  21588.]
+Chunk start times [-21600.0, -21420.0, -21240.0, -21060.0, -20880.0, -20700.0, -20520.0, -20340.0, -20160.0, -19980.0, -19800.0, -19620.0, -19440.0, -19260.0, -19080.0, -18900.0, -18720.0, -18540.0, -18360.0, -18180.0, -18000.0, -17820.0, -17640.0, -17460.0, -17280.0, -17100.0, -16920.0, -16740.0, -16560.0, -16380.0, -16200.0, -16020.0, -15840.0, -15660.0, -15480.0, -15300.0, -15120.0, -14940.0, -14760.0, -14580.0, -14400.0, -14220.0, -14040.0, -13860.0, -13680.0, -13500.0, -13320.0, -13140.0, -12960.0, -12780.0, -12600.0, -12420.0, -12240.0, -12060.0, -11880.0, -11700.0, -11520.0, -11340.0, -11160.0, -10980.0, -10800.0, -10620.0, -10440.0, -10260.0, -10080.0, -9900.0, -9720.0, -9540.0, -9360.0, -9180.0, -9000.0, -8820.0, -8640.0, -8460.0, -8280.0, -8100.0, -7920.0, -7740.0, -7560.0, -7380.0, -7200.0, -7020.0, -6840.0, -6660.0, -6480.0, -6300.0, -6120.0, -5940.0, -5760.0, -5580.0, -5400.0, -5220.0, -5040.0, -4860.0, -4680.0, -4500.0, -4320.0, -4140.0, -3960.0, -3780.0, -3600.0, -3420.0, -3240.0, -3060.0, -2880.0, -2700.0, -2520.0, -2340.0, -2160.0, -1980.0, -1800.0, -1620.0, -1440.0, -1260.0, -1080.0, -900.0, -720.0, -540.0, -360.0, -180.0, 0.0, 180.0, 360.0, 540.0, 720.0, 900.0, 1080.0, 1260.0, 1440.0, 1620.0, 1800.0, 1980.0, 2160.0, 2340.0, 2520.0, 2700.0, 2880.0, 3060.0, 3240.0, 3420.0, 3600.0, 3780.0, 3960.0, 4140.0, 4320.0, 4500.0, 4680.0, 4860.0, 5040.0, 5220.0, 5400.0, 5580.0, 5760.0, 5940.0, 6120.0, 6300.0, 6480.0, 6660.0, 6840.0, 7020.0, 7200.0, 7380.0, 7560.0, 7740.0, 7920.0, 8100.0, 8280.0, 8460.0, 8640.0, 8820.0, 9000.0, 9180.0, 9360.0, 9540.0, 9720.0, 9900.0, 10080.0, 10260.0, 10440.0, 10620.0, 10800.0, 10980.0, 11160.0, 11340.0, 11520.0, 11700.0, 11880.0, 12060.0, 12240.0, 12420.0, 12600.0, 12780.0, 12960.0, 13140.0, 13320.0, 13500.0, 13680.0, 13860.0, 14040.0, 14220.0, 14400.0, 14580.0, 14760.0, 14940.0, 15120.0, 15300.0, 15480.0, 15660.0, 15840.0, 16020.0, 16200.0, 16380.0, 16560.0, 16740.0, 16920.0, 17100.0, 17280.0, 17460.0, 17640.0, 17820.0, 18000.0, 18180.0, 18360.0, 18540.0, 18720.0, 18900.0, 19080.0, 19260.0, 19440.0, 19620.0, 19800.0, 19980.0, 20160.0, 20340.0, 20520.0, 20700.0, 20880.0, 21060.0, 21240.0, 21420.0]
+Each averaged chunk has 1 integrations of duration 12.00 (s)
+Each averaged chunk has 4 channels of width 3.515 (MHz)
+Processing 3600 time chunks in groups of 15
+distributed.scheduler - INFO - Remove client Client-e30b8864-b109-11e9-b1b5-246e964883a8
+distributed.scheduler - INFO - Remove client Client-e30b8864-b109-11e9-b1b5-246e964883a8
+distributed.scheduler - INFO - Close client connection: Client-e30b8864-b109-11e9-b1b5-246e964883a8
+About to execute python ../../power_spectrum.py --image simulate_rfi_-45.0_dirty.fits
+Display power spectrum of an image
+Image:
+	Shape: (4, 1, 1024, 1024)
+	WCS: WCS Keywords
+
+Number of WCS axes: 4
+CTYPE : 'RA---SIN'  'DEC--SIN'  'STOKES'  'FREQ'  
+CRVAL : 0.0  -45.0  1.0  172228033.4728  
+CRPIX : 513.0  513.0  1.0  1.0  
+PC1_1 PC1_2 PC1_3 PC1_4  : 1.0  0.0  0.0  0.0  
+PC2_1 PC2_2 PC2_3 PC2_4  : 0.0  1.0  0.0  0.0  
+PC3_1 PC3_2 PC3_3 PC3_4  : 0.0  0.0  1.0  0.0  
+PC4_1 PC4_2 PC4_3 PC4_4  : 0.0  0.0  0.0  1.0  
+CDELT : -0.0085943669269623  0.0085943669269623  1.0  3514644.3514644  
+NAXIS : 1024  1024  1  4
+	Polarisation frame: stokesI
+
+Image:
+	Shape: (4, 1, 1024, 1024)
+	WCS: WCS Keywords
+
+Number of WCS axes: 4
+CTYPE : 'UU'  'VV'  'STOKES'  'FREQ'  
+CRVAL : 0.0  0.0  1.0  172228033.4728  
+CRPIX : 513.0  513.0  1.0  1.0  
+PC1_1 PC1_2 PC1_3 PC1_4  : 1.0  0.0  0.0  0.0  
+PC2_1 PC2_2 PC2_3 PC2_4  : 0.0  1.0  0.0  0.0  
+PC3_1 PC3_2 PC3_3 PC3_4  : 0.0  0.0  1.0  0.0  
+PC4_1 PC4_2 PC4_3 PC4_4  : 0.0  0.0  0.0  1.0  
+CDELT : -6.510416666666703  6.510416666666703  1.0  3514644.3514644  
+NAXIS : 1024  1024  1  4
+	Polarisation frame: stokesI
+

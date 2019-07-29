@@ -106,3 +106,6 @@ venv.bak/
 /FM_station/FM_station_data/17-22-08_89100kHz.wav
 dask-worker-space
 *.lock
+waterfall*.png
+*.dirlock
+*.fits

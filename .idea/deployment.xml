@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="sheldon">
+  <component name="PublishConfigData" autoUpload="Always" serverName="alaska" showDifferentInSync="false" showNewOnSourceInSync="false" showAutoUploadSettingsWarning="false">
     <serverData>
+      <paths name="alaska">
+        <serverdata>
+          <mappings>
+            <mapping deploy="Code/sim-lowlevel-rfi" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="sheldon">
         <serverdata>
           <mappings>
