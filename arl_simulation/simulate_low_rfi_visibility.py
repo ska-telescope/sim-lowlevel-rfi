@@ -8,7 +8,8 @@ well known but they are probably static.
 * The RFI enters LOW stations in a sidelobe of the main beam. Calulations by Fred Dulwich indicate that this
 provides attenuation of about 55 - 60dB for a source close to the horizon.
 * The RFI enters each LOW station with fixed delay and zero fringe rate (assuming no e.g. ionospheric ducting)
-* In tracking a source on the sky, the signal from one station is delayed and fringe-rotated to stop the fringes for one direction on the sky.
+* In tracking a source on the sky, the signal from one station is delayed and fringe-rotated to stop the fringes for
+one direction on the sky.
 * The fringe rotation stops the fringe from a source at the phase tracking centre but phase rotates the RFI, which
 now becomes time-variable.
 * The correlation data are time- and frequency-averaged over a timescale appropriate for the station field of view.
@@ -16,7 +17,18 @@ This averaging decorrelates the RFI signal.
 * We want to study the effects of this RFI on statistics of the visibilities, and on images made on source and
 at the pole.
 
+This simulation includes the inverse square law as a starting point. We then add attenuation selected to give SNR
+about 1 in the unaveraged time-frequency data. This is about 100dB. This script then averages the data
+producing baseline-dependent decorrelation. In dB the effect of averaging is not more than about -20dB
+but it does vary with baseline giving the radial power spectrum we see. The 55-60 dB is presumably part
+of the 100dB, and the terrain propagation provides the rest of the 100dB.
+
+We do the test in such a way to produce a low SNR but of course at the moment, I have no idea as to
+what the actual attenuation is. Once we have estimates, we can do it the other way round. Fix the
+attenuation and see what the power spectrum looks like.
+
 """
+import os
 import pprint
 
 import matplotlib.pyplot as plt
@@ -34,7 +46,6 @@ from wrappers.arlexecute.execution_support.arlexecute import arlexecute
 from wrappers.arlexecute.execution_support.dask_init import get_dask_Client
 from wrappers.arlexecute.image.operations import show_image, export_image_to_fits
 from wrappers.arlexecute.simulation.configurations import create_named_configuration
-from wrappers.arlexecute.simulation.noise import addnoise_visibility
 from wrappers.arlexecute.visibility.base import create_blockvisibility
 from wrappers.arlexecute.visibility.coalesce import convert_blockvisibility_to_visibility
 
@@ -51,7 +62,7 @@ def add_noise(bvis):
 
 def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre, polarisation_frame,
                        time_average, channel_average, attenuation, noise,
-                       emitter_location, emitter_power, use_pole):
+                       emitter_location, emitter_power, use_pole, waterfall):
     averaged_frequency = numpy.array(average_chunks(frequency, numpy.ones_like(frequency), channel_average))[0]
     averaged_channel_bandwidth, wts = numpy.array(
         average_chunks(channel_bandwidth, numpy.ones_like(frequency), channel_average))
@@ -67,7 +78,13 @@ def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre,
     
     bvis = simulate_rfi_block(bvis, emitter_location=emitter_location,
                               emitter_power=emitter_power, attenuation=attenuation, use_pole=use_pole)
-    
+
+    if noise:
+        bvis = add_noise(bvis)
+
+    if waterfall:
+        plot_waterfall(bvis)
+
     averaged_bvis = create_blockvisibility(config, s2r * averaged_times, averaged_frequency,
                                            channel_bandwidth=averaged_channel_bandwidth,
                                            phasecentre=phasecentre,
@@ -94,6 +111,36 @@ def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre,
         averaged_bvis = add_noise(averaged_bvis)
     
     return averaged_bvis
+
+def plot_waterfall(bvis):
+    print(bvis.uvw.shape)
+    uvdist = numpy.hypot(bvis.uvw[0,:,:,0], bvis.uvw[0,:,:,1])
+    print(uvdist.shape)
+    uvdistmax = 0.0
+    max_ant1=0
+    max_ant2=0
+    for ant2 in range(bvis.nants):
+        for ant1 in range(ant2+1):
+            if uvdist[ant2, ant1] > uvdistmax:
+                uvdistmax = uvdist[ant2, ant1]
+                max_ant1 = ant1
+                max_ant2 = ant2
+                
+    basename = os.path.basename(os.getcwd())
+    fig=plt.figure()
+    fig.suptitle('%s: Baseline [%d, %d], ha %.2f' % (basename, max_ant1, max_ant2, bvis.time[0]))
+    plt.subplot(121)
+    plt.gca().set_title("Amplitude")
+    plt.gca().imshow(numpy.abs(bvis.vis[: , max_ant1, max_ant2, :, 0]), origin='bottom')
+    plt.gca().set_xlabel('Channel')
+    plt.gca().set_ylabel('Time')
+    plt.subplot(122)
+    plt.gca().imshow(numpy.angle(bvis.vis[: , max_ant1, max_ant2, :, 0]), origin='bottom')
+    plt.gca().set_title("Phase")
+    plt.gca().set_xlabel('Channel')
+    plt.gca().set_ylabel('Time')
+    plt.savefig('waterfall_%d_%d_ha_%.2f.png' % (max_ant1, max_ant2, bvis.time[0]))
+    plt.show(block=False)
 
 
 if __name__ == '__main__':
@@ -139,6 +186,7 @@ if __name__ == '__main__':
     parser.add_argument('--emitter_power', type=float, default=5e4, help="Emitter power (W)]")
 
     parser.add_argument('--use_pole', type=str, default="False", help='Set RFI source at pole?')
+    parser.add_argument('--waterfall', type=str, default="False", help='Plot waterfalls?')
 
     args = parser.parse_args()
     print("Starting LOW low level RFI simulation")
@@ -159,6 +207,11 @@ if __name__ == '__main__':
     emitter_location = EarthLocation(lon=args.emitter_longitude, lat=args.emitter_latitude, height=0.0)
     emitter_power = args.emitter_power
     print("Emitter is %.1f kW at location %s" % (1e-3 * emitter_power, emitter_location.geodetic))
+    
+    if args.waterfall == "True":
+        waterfall = True
+    else:
+        waterfall = False
     
     if args.noise == "True":
         noise = True
@@ -228,7 +281,7 @@ if __name__ == '__main__':
           (len(averaged_frequency), 1e-6 * averaged_channel_bandwidth[0]))
     print("Processing %d time chunks in groups of %d" % (len(start_times), args.ngroup_visibility))
 
-    cellsize = 1.5e-4 * (3000.0 / rmax)
+    cellsize = 1e-4 * (3000.0 / rmax)
     model_graph = arlexecute.execute(create_image)(cellsize=cellsize, npixel=npixel,
                                                    frequency=averaged_frequency,
                                                    channel_bandwidth=averaged_channel_bandwidth,
@@ -260,7 +313,8 @@ if __name__ == '__main__':
                                                                 noise=noise,
                                                                 emitter_location=emitter_location,
                                                                 emitter_power=emitter_power,
-                                                                use_pole=use_pole)
+                                                                use_pole=use_pole,
+                                                                waterfall=waterfall)
             
             # Convert BlockVisibility to imaging-specific Visibility
             vis_graph = arlexecute.execute(convert_blockvisibility_to_visibility)(bvis_graph)
