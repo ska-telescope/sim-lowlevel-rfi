@@ -33,7 +33,8 @@ if __name__ == '__main__':
     parser.add_argument('--image', type=str, default=None, help='Image name')
     parser.add_argument('--signal_channel', type=int, default=None, help='Channel containing signal+noise only')
     parser.add_argument('--noise_channel', type=int, default=0, help='Channel containing noise only')
-    parser.add_argument('--resolution', type=float, default=5e-4, help='Resolution in radians')
+    parser.add_argument('--resolution', type=float, default=5e-4,
+                        help='Resolution in radians needed for conversion to K')
     
     args = parser.parse_args()
     print("Display power spectrum of an image")
