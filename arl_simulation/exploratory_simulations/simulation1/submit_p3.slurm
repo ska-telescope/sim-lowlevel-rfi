@@ -10,15 +10,15 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J ESIM10
+#SBATCH -J ESIM1
 #! Which project should be charged:
 #SBATCH -A SKA-SDP
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=16
 #! How many (MPI) tasks will there be in total? (<= nodes*16)
-#SBATCH --ntasks=49
+#SBATCH --ntasks=33
 #! Memory limit: P3 has roughly 107GB per node
-#SBATCH --mem 35000
+##SBATCH --mem 50000
 #! How much wallclock time will be required?
 #SBATCH --time=23:59:59
 #! What types of email messages do you wish to receive?
@@ -68,7 +68,7 @@ for host in `cat hostfile.$JOBID`; do
         sleep 5
     fi
     echo "run dask-worker"
-    ssh $host dask-worker --host ${host} --nprocs 3 --nthreads 1  \
+    ssh $host dask-worker --host ${host} --nprocs 2 --nthreads 1  \
      --memory-limit 25GB  $scheduler:8786  &
         sleep 1
     hostIndex="1"
@@ -83,15 +83,11 @@ echo "Scheduler is running at ${scheduler}"
 # would require 170.5MHz to 184.50MHz at a resolution of 0.2MHz, spanning 280 frequency channels,
 # time sampling would be about 0.2s.
 
-CMD="python ../../simulate_low_rfi_visibility.py --rmax 2000 --npixel 1024 \
---station_skip 2 --noise True --use_pole False --attenuation 1e-5  --use_agg True --declination -45 --ngroup_visibility
-60 \
---nintegrations_per_chunk 240 --nchannels_per_chunk 240 --time_average 15 --channel_average 15 --integration_time 0.2 \
---frequency_range 170.5e6 184.5e6 --use_pole False | tee simulate_low_rfi_visibility.log"
+CMD="python ../../simulate_low_rfi_visibility.py --rmax 3400 --npixel 1024 \
+--station_skip 2 --noise False --attenuation 1.0 --use_agg True --declination -45 --ngroup_visibility 30 \
+--nintegrations_per_chunk 256 --nchannels_per_chunk 256 --time_average 16 --channel_average 16 --integration_time 1.0 \
+--frequency_range 170.5e6 184.5e6 | tee simulate_low_rfi_visibility.log"
 echo "About to execute $CMD"
-eval $CMD
-CMD="python ../../power_spectrum.py --image simulate_rfi_-45.0_dirty.fits"
-echo "About to execute $CMD"
-eval $CMD
 
+eval $CMD
 

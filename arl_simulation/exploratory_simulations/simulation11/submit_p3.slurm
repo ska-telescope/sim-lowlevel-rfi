@@ -14,9 +14,9 @@
 #! Which project should be charged:
 #SBATCH -A SKA-SDP
 #! How many whole nodes should be allocated?
-#SBATCH --nodes=15
+#SBATCH --nodes=16
 #! How many (MPI) tasks will there be in total? (<= nodes*16)
-#SBATCH --ntasks=46
+#SBATCH --ntasks=49
 #! Memory limit: P3 has roughly 107GB per node
 #SBATCH --mem 35000
 #! How much wallclock time will be required?
@@ -69,7 +69,7 @@ for host in `cat hostfile.$JOBID`; do
     fi
     echo "run dask-worker"
     ssh $host dask-worker --host ${host} --nprocs 3 --nthreads 1  \
-    --memory-limit 0.75 --local-directory /tmp $scheduler:8786  &
+     --memory-limit 25GB  $scheduler:8786  &
         sleep 1
     hostIndex="1"
 done

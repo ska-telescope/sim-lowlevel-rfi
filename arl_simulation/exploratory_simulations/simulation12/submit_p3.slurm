@@ -14,9 +14,9 @@
 #! Which project should be charged:
 #SBATCH -A SKA-SDP
 #! How many whole nodes should be allocated?
-#SBATCH --nodes=15
+#SBATCH --nodes=16
 #! How many (MPI) tasks will there be in total? (<= nodes*16)
-#SBATCH --ntasks=46
+#SBATCH --ntasks=49
 #! Memory limit: P3 has roughly 107GB per node
 #SBATCH --mem 35000
 #! How much wallclock time will be required?
@@ -69,7 +69,7 @@ for host in `cat hostfile.$JOBID`; do
     fi
     echo "run dask-worker"
     ssh $host dask-worker --host ${host} --nprocs 3 --nthreads 1  \
-    --memory-limit 0.75 --local-directory /tmp $scheduler:8786  &
+     --memory-limit 25GB  $scheduler:8786  &
         sleep 1
     hostIndex="1"
 done
@@ -84,9 +84,9 @@ echo "Scheduler is running at ${scheduler}"
 # time sampling would be about 0.2s.
 
 CMD="python ../../simulate_low_rfi_visibility.py --rmax 2000 --npixel 1024 \
---station_skip 1 --noise True --use_pole False --attenuation 2e-5  --use_agg True --declination -45 --ngroup_visibility
-15 \
---nintegrations_per_chunk 60 --nchannels_per_chunk 240 --time_average 60 --channel_average 60 --integration_time 0.2 \
+--station_skip 1 --noise True --attenuation 2e-5  --use_agg True --declination -45 \
+--ngroup_visibility 15 --nintegrations_per_chunk 60 --nchannels_per_chunk 240 \
+--time_average 60 --channel_average 60 --integration_time 0.2 \
 --frequency_range 170.5e6 184.5e6 --use_pole False | tee simulate_low_rfi_visibility.log"
 echo "About to execute $CMD"
 eval $CMD

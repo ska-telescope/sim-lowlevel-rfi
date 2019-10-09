@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J ESIM10
+#SBATCH -J ESIM9
 #! Which project should be charged:
 #SBATCH -A SKA-SDP
 #! How many whole nodes should be allocated?
@@ -83,15 +83,11 @@ echo "Scheduler is running at ${scheduler}"
 # would require 170.5MHz to 184.50MHz at a resolution of 0.2MHz, spanning 280 frequency channels,
 # time sampling would be about 0.2s.
 
-CMD="python ../../simulate_low_rfi_visibility.py --rmax 2000 --npixel 1024 \
---station_skip 2 --noise True --use_pole False --attenuation 1e-5  --use_agg True --declination -45 --ngroup_visibility
-60 \
+CMD="python ../../simulate_low_rfi_visibility.py --rmax 2700 --npixel 1024 --use_pole False \
+--station_skip 2 --noise True --attenuation 4e-5  --use_agg True --declination -45 --ngroup_visibility 60 \
 --nintegrations_per_chunk 240 --nchannels_per_chunk 240 --time_average 15 --channel_average 15 --integration_time 0.2 \
---frequency_range 170.5e6 184.5e6 --use_pole False | tee simulate_low_rfi_visibility.log"
+--frequency_range 170.5e6 184.5e6 | tee simulate_low_rfi_visibility.log"
 echo "About to execute $CMD"
-eval $CMD
-CMD="python ../../power_spectrum.py --image simulate_rfi_-45.0_dirty.fits"
-echo "About to execute $CMD"
-eval $CMD
 
+eval $CMD
 

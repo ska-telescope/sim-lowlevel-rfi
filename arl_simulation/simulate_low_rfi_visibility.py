@@ -1,13 +1,18 @@
 # coding: utf-8
 """ Simulate low level RFI
 
+We are interested in the effects of RFI signals that cannot be detected in the visibility data. Therefore,
+in our simulations we add attenuation selected to give SNR about 1 in the unaveraged time-frequency data.
+This is about 180dB for a DTV station in Perth.
+
 The scenario is:
 * There is a TV station at a remote location (e.g. Perth), emitting a broadband signal (7MHz) of known power (50kW).
 * The emission from the TV station arrives at LOW stations with phase delay and attenuation. Neither of these are
 well known but they are probably static.
-* The RFI enters LOW stations in a sidelobe of the main beam. Calulations by Fred Dulwich indicate that this
+* The RFI enters LOW stations in a sidelobe of the station beam. Calculations by Fred Dulwich indicate that this
 provides attenuation of about 55 - 60dB for a source close to the horizon.
-* The RFI enters each LOW station with fixed delay and zero fringe rate (assuming no e.g. ionospheric ducting)
+* The RFI enters each LOW station with fixed delay and zero fringe rate (assuming no e.g. ionospheric ducting or
+reflection from a plane)
 * In tracking a source on the sky, the signal from one station is delayed and fringe-rotated to stop the fringes for
 one direction on the sky.
 * The fringe rotation stops the fringe from a source at the phase tracking centre but phase rotates the RFI, which
@@ -17,15 +22,15 @@ This averaging decorrelates the RFI signal.
 * We want to study the effects of this RFI on statistics of the visibilities, and on images made on source and
 at the pole.
 
-This simulation includes the inverse square law as a starting point. We then add attenuation selected to give SNR
-about 1 in the unaveraged time-frequency data. This is about 100dB. This script then averages the data
-producing baseline-dependent decorrelation. In dB the effect of averaging is not more than about -20dB
-but it does vary with baseline giving the radial power spectrum we see. The 55-60 dB is presumably part
-of the 100dB, and the terrain propagation provides the rest of the 100dB.
+The simulate_low_rfi_visibility.py script averages the data producing baseline-dependent decorrelation.
+The effect of averaging is not more than about -20dB but it does vary with baseline giving the radial
+power spectrum we see. The 55-60 dB is part of the 180dB. To give a signal to noise on 1 or less, the
+terrain propagation must be about 100dB.
 
-We do the test in such a way to produce a low SNR but of course at the moment, I have no idea as to
-what the actual attenuation is. Once we have estimates, we can do it the other way round. Fix the
-attenuation and see what the power spectrum looks like.
+The simulation is implemented in some functions in ARL, and the script simulate_low_rfi_visibility is available
+in the SKA Github repository sim-lowlevel-rfi. Distributed processing is implemented via Dask. The outputs are
+fits file and plots of the images: on signal channels and on pure noise channels, and for the source of
+interest and the Southern Celestial Pole. The unaveraged MeasurementSets are also output, one per time chunk.
 
 """
 import os
@@ -41,6 +46,8 @@ from data_models.polarisation import PolarisationFrame
 from processing_components.simulation.rfi import calculate_averaged_correlation, simulate_rfi_block
 from processing_library.image.operations import create_image
 from processing_library.util.array_functions import average_chunks
+
+from processing_components.visibility.base import export_blockvisibility_to_ms
 from workflows.arlexecute.imaging.imaging_arlexecute import invert_list_arlexecute_workflow, sum_invert_results
 from wrappers.arlexecute.execution_support.arlexecute import arlexecute
 from wrappers.arlexecute.execution_support.dask_init import get_dask_Client
@@ -62,7 +69,7 @@ def add_noise(bvis):
 
 def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre, polarisation_frame,
                        time_average, channel_average, attenuation, noise,
-                       emitter_location, emitter_power, use_pole, waterfall):
+                       emitter_location, emitter_power, use_pole, waterfall, write_ms):
     averaged_frequency = numpy.array(average_chunks(frequency, numpy.ones_like(frequency), channel_average))[0]
     averaged_channel_bandwidth, wts = numpy.array(
         average_chunks(channel_bandwidth, numpy.ones_like(frequency), channel_average))
@@ -84,6 +91,10 @@ def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre,
 
     if waterfall:
         plot_waterfall(bvis)
+
+    if write_ms:
+        msname = "simulate_rfi_%.1f.ms" % (times[0])
+        export_blockvisibility_to_ms(msname, [bvis], "RFI")
 
     averaged_bvis = create_blockvisibility(config, s2r * averaged_times, averaged_frequency,
                                            channel_bandwidth=averaged_channel_bandwidth,
@@ -187,9 +198,14 @@ if __name__ == '__main__':
 
     parser.add_argument('--use_pole', type=str, default="False", help='Set RFI source at pole?')
     parser.add_argument('--waterfall', type=str, default="False", help='Plot waterfalls?')
+    parser.add_argument('--write_ms', type=str, default="False", help='Write measurmentsets?')
 
     args = parser.parse_args()
     print("Starting LOW low level RFI simulation")
+
+    pp.pprint(vars(args))
+
+    write_ms = args.write_ms == "True"
     
     numpy.random.seed(args.seed)
     
@@ -314,7 +330,8 @@ if __name__ == '__main__':
                                                                 emitter_location=emitter_location,
                                                                 emitter_power=emitter_power,
                                                                 use_pole=use_pole,
-                                                                waterfall=waterfall)
+                                                                waterfall=waterfall,
+                                                                write_ms=write_ms)
             
             # Convert BlockVisibility to imaging-specific Visibility
             vis_graph = arlexecute.execute(convert_blockvisibility_to_visibility)(bvis_graph)
@@ -351,7 +368,6 @@ if __name__ == '__main__':
     show_image(dirty, chan=len(frequency) // channel_average // 2)
     plotname = "simulate_rfi_%.1f_%s.png" % (declination, type)
     plt.title('Image of the target field')
-    plt.tight_layout()
     plt.savefig(plotname)
     plt.show(block=False)
 
@@ -366,6 +382,5 @@ if __name__ == '__main__':
     show_image(pole_dirty, chan=len(frequency) // channel_average // 2)
     plotname = "simulate_rfi_pole_%s.png" % (type)
     plt.title('Image of the southern celestial pole')
-    plt.tight_layout()
     plt.savefig(plotname)
     plt.show(block=False)
