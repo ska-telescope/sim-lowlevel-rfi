@@ -1,0 +1,11 @@
+# Beam pixel list for telescope (interferometer)
+# Filename is 'test_bp_TIME_SEP_CHAN_SEP_CROSS_POWER_AMP_I_Q.txt'
+# Dimension order (slowest to fastest) is:
+#     [pixel chunk], [time], [channel], [pixel index]
+# Number of pixel chunks: 1
+# Number of times (output): 1
+# Number of channels (output): 2
+# Maximum pixel chunk size: 16384
+# Total number of pixels: 1
+ 9.13966230878187e-08 
+ 8.67595835155739e-08 
