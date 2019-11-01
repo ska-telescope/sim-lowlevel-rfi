@@ -17,13 +17,15 @@ import time
 
 pathprof.SrtmConf.set(download='missing', server='viewpano')
 # allow download of missing SRTM data
+pathprof.SrtmConf.set(srtm_dir='SRTM')
+
 
 
 def calc_prop_atten(freq, omega, temp, press, timepercent, h_tg, h_rg,
                     G_t, G_r, zone_t, zone_r, N_freqs, freq_start,
                     freq_end, hprof_step,
                     tx_name, tx_lon, tx_lat, rx_name, rx_lon, rx_lat,
-                    diam):
+                    diam, direct, polarization=None,):
 
     freq = freq * u.MHz
     omega = omega * u.percent  # fraction of path over sea
@@ -63,7 +65,7 @@ def calc_prop_atten(freq, omega, temp, press, timepercent, h_tg, h_rg,
 	'''
     # For LOW, get list of station name/locations from xlsx worksheet
     Antenna_locations = xlrd.open_workbook(
-        '/local/SKA/RFI/SKA1_LOW_coordinates_REV3.xlsx')
+        '/local/SKA/RFI/configurations/SKA1_LOW_coordinates_REV3.xlsx')
     sheet_indx = 0
     sheet = Antenna_locations.sheet_by_index(sheet_indx)
     name_x = list()
@@ -163,7 +165,8 @@ def calc_prop_atten(freq, omega, temp, press, timepercent, h_tg, h_rg,
                                          lat_x[k]*u.deg,
                                          h_tg, h_rg,
                                          hprof_step, timepercent,
-                                         zone_t=zone_t, zone_r=zone_r,)
+                                         zone_t=zone_t, zone_r=zone_r,
+                                         polarization=polarization,)
 
         # print('FL-FL,  Az/El: {:.1f}, {:.1f}'.format(
         #	pprop_fl_ras.alpha_tr, pprop_fl_ras.eps_pt))
@@ -187,9 +190,12 @@ def calc_prop_atten(freq, omega, temp, press, timepercent, h_tg, h_rg,
             G_max_fl = antenna.fl_G_max_from_size(diameter_fl, wavelen_fl)
             # print('FL max. gain: {:.1f}'.format(G_max_fl))
 
-            G_eff = antenna.fl_pattern(
-                ang_dist, diameter_fl, wavelen_fl, G_max_fl)
-            # print('Effective gain towards RAS station: {:.1f}'.format(G_eff))
+            if direct == 'OD':
+            	G_eff = G_max_fl
+            else:
+	            G_eff = antenna.fl_pattern(
+    	            ang_dist, diameter_fl, wavelen_fl, G_max_fl)
+        	    # print('Effective gain towards RAS station: {:.1f}'.format(G_eff))
 
             results = pathprof.atten_path_fast(freqs[i],
                                                temperature,
@@ -197,13 +203,14 @@ def calc_prop_atten(freq, omega, temp, press, timepercent, h_tg, h_rg,
                                                h_tg, h_rg,
                                                timepercent,
                                                hprof_cache,  # dict_like
+                                               polarization,
                                                )
             Atten_ant[k, i] = results['L_b'][-1].value - G_eff.value
             #        _total_atten = results['L_b']  # L_b is the total attenuation,
             # considering all the factors.
             #        _fspl_atten = results['L_bfsg']  # considers only the free
             # space loss
-            print(i,k,' atten value ',Atten_ant[k,i])
+            # print(i,k,' atten value ',Atten_ant[k,i])
     attenpath_calc_end = time.time()
     print('Completed in %f sec.' % (attenpath_calc_end-attenpath_calc_start))
     return(Atten_ant, freqs)
@@ -223,12 +230,14 @@ if __name__ == '__main__':
     temperature = 290.  # u.K
     pressure = 1013.  # u.hPa
     timepercent = 0.02  # u.percent  # see P.452 for explanation
-    h_tg, h_rg = 3, 2.1  # u.m#height of the receiver and transmitter above gnd
+    h_tg, h_rg = 175, 2.1  # u.m#height of the receiver and transmitter above gnd
     G_t, G_r = 0, 0  # cnv.dBi
     zone_t, zone_r = pathprof.CLUTTER.UNKNOWN, pathprof.CLUTTER.UNKNOWN
     # clutter type for transmitter/receiver
     # hprof_step = 10 * u.m
     diam = 2  # u.m # assumed diameter of transmitter
+    direct = 'OD'
+    polarization = 0 # 0 horizontal, 1 vertical
 
     '''
 	=======================================
@@ -241,22 +250,31 @@ if __name__ == '__main__':
     hprof_step = 10000  # u.m  # resolution of solution
 
     # DTV Bickley site Perth 180MHz Seven
-    tx_name, tx_lon, tx_lat = 'DTVseven', 116.084166666667, -32.0083333333333
+    #tx_name, tx_lon, tx_lat = 'DTVseven', 116.084166666667, -32.0083333333333
     # site, lon_tx, lat_tx = 'DTVSeven', tx_lon*u.deg, tx_lat * u.deg
 
+    tx_name,tx_lon,tx_lat = 'TVW6_26624', 116.061666667,-32.0127777778
+
     # central reciever position for map calc.
-    rx_name, rx_lon, rx_lat = 'Low_E4', 116.75, -26.835
+    # rx_name, rx_lon, rx_lat = 'Low_E4', 116.75, -26.835
+    rx_name, rx_lon, rx_lat = 'Low_E4', 116.4525771, -26.60055525 # 116.75, -26.835
 
     # map_size_x = 2.0 # deg
     # map_size_y = 2.0
     # map_size_lon, map_size_lat = map_size_x * u.deg, map_size_y * u.deg
 
+    print(freq, omega, temperature, pressure,
+		timepercent, h_tg, h_rg, G_t, G_r,
+		zone_t, zone_r, N_freqs,
+		freq_start, freq_end, hprof_step,
+		tx_name, tx_lon, tx_lat, rx_name,
+		rx_lon, rx_lat, diam, direct, polarization)
     Atten_ant, freqs = calc_prop_atten(freq, omega, temperature, pressure,
                                        timepercent, h_tg, h_rg, G_t, G_r,
                                        zone_t, zone_r, N_freqs,
                                        freq_start, freq_end, hprof_step,
                                        tx_name, tx_lon, tx_lat, rx_name,
-                                       rx_lon, rx_lat, diam)
+                                       rx_lon, rx_lat, diam, direct, polarization,)
 
     print(Atten_ant.shape)
     # Output results to file

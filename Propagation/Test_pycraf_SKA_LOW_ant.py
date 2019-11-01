@@ -41,6 +41,9 @@ pathprof.SrtmConf.set(download='missing', server='viewpano')
 tx_lon, tx_lat = 116.084166666667, -32.0083333333333
 site, lon_tx, lat_tx = 'DTVSeven', tx_lon*u.deg, tx_lat * u.deg
 
+# Centre of low telescope
+#rx_name, rx_lon, rx_lat = 'Low_E4', 116.4525771, -26.60055525 # 116.75, -26.835
+
 '''
 ===========================================
     Sites of particular interest
@@ -52,7 +55,7 @@ Site = namedtuple('sitetype', ['name', 'coord', 'pixoff', 'color'])
 sites = OrderedDict([
     # ID: tuple(Name, (lon, lat), Type, height, diameter, (xoff, yoff), color)
     #('Tx', Site('Tx', (u.Quantity(lon_tx).value, u.Quantity(lat_tx).value), (20, +30), 'k')),
-    ('Low_E4', Site('Low_E4', (116.75, -26.835), (60, -20), 'k')),
+    ('Low_E4', Site('Low_E4', (116.4525771, -26.60055525), (60, -20), 'k')),
     ('Trans', Site(site,(tx_lon,tx_lat),(60,-20), 'k')),        
     ])
 
@@ -147,7 +150,8 @@ pressure = 1013. * u.hPa
 timepercent = 0.02 * u.percent  # see P.452 for explanation
 h_tg, h_rg = 3 * u.m, 2.1 * u.m#height of the receiver and transmitter above gnd
 G_t, G_r = 0 * cnv.dBi, 0 * cnv.dBi
-zone_t, zone_r = pathprof.CLUTTER.UNKNOWN, pathprof.CLUTTER.UNKNOWN 
+zone_t, zone_r = pathprof.CLUTTER.UNKNOWN, pathprof.CLUTTER.UNKNOWN
+polarization = 0 #0 horizontal, 1 vertical
 # clutter type for transmitter/receiver
 # hprof_step = 10 * u.m
 
@@ -158,9 +162,9 @@ Path attenuation additional inputs
 =======================================
 '''
 
-N_freqs = 100  # no. of channels
+N_freqs = 10  # no. of channels
 freq_start, freq_end = 170, 180  # frequency range MHz
-hprof_step = 1000 * u.m  # resolution of solution
+hprof_step = 10000 * u.m  # resolution of solution
 
 
 
@@ -313,6 +317,7 @@ if do_map_solution:
                                     h_tg, h_rg,
                                     timepercent,
                                     hprof_cache,  # dict_like
+                                    polarization,
                                     )
 
     _lons = hprof_cache['xcoords']
@@ -544,10 +549,10 @@ hprof_step = 1000 * u.m  # resolution of solution
 '''
 
 N_ant = len(long_x)-1
-N_freqs = 3
+N_freqs = 20
 # freqs = np.logspace(np.log10(350),np.log10(15400),N_freqs)*u.MHz
 freqs = np.logspace(np.log10(freq_start),np.log10(freq_end),N_freqs)*u.MHz
-print(freqs)
+#print(freqs)
                                                                             
 
 Atten_ant = np.zeros([N_ant,N_freqs])
@@ -561,13 +566,14 @@ for k in range(N_ant):
                                             lat_x[k]*u.deg,
                                             hprof_step)
     for i in range(N_freqs):
-        print(k,i)
+        #print(k,i)
         results = pathprof.atten_path_fast(freqs[i],
                                         temperature,
                                         pressure,
                                         h_tg, h_rg,
                                         timepercent,
                                         hprof_cache,  # dict_like
+                                        polarization,
                                         )
         Atten_ant[k,i] = results['L_b'][-1].value #gets the last value of the attenuation path.
 #        _total_atten = results['L_b']  # L_b is the total attenuation, considering all the factors.
@@ -614,6 +620,7 @@ for k in range(N_ant):
             hprof_step,
             timepercent,
             zone_t=zone_t, zone_r=zone_r,
+            polarization = polarization,
             )
 
         G_eff = -4.7*cnv.dBi
