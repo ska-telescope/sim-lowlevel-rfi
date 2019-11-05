@@ -102,18 +102,20 @@ def simulate_rfi_image(config, times, frequency, channel_bandwidth, phasecentre,
                                            polarisation_frame=polarisation_frame,
                                            zerow=False)
     npol = 1
-    for itime, time in enumerate(averaged_times):
-        atime = itime // time_average
+    for itime, _ in enumerate(averaged_times):
+        atime = itime * time_average
         for ant2 in range(nants):
             for ant1 in range(ant2, nants):
-                for pol in range(npol):
-                    averaged_bvis.data['vis'][itime, ant2, ant1, ..., pol] = \
-                        calculate_averaged_correlation(
-                            bvis.data['vis'][itime:(atime + time_average), ant2, ant1, ..., pol],
-                            channel_average, time_average)
-                    averaged_bvis.data['vis'][itime, ant1, ant2, ..., pol] = \
-                        numpy.conjugate(averaged_bvis.data['vis'][itime, ant2, ant1, ..., pol])
-        
+                for ichan, _ in enumerate(averaged_frequency):
+                    achan = ichan * channel_average
+                    for pol in range(npol):
+                        averaged_bvis.data['vis'][itime, ant2, ant1, ichan, pol] = \
+                            calculate_averaged_correlation(
+                                bvis.data['vis'][atime:(atime+time_average), ant2, ant1, achan:(achan+channel_average), pol],
+                                time_average, channel_average)[0,0]
+                        averaged_bvis.data['vis'][itime, ant1, ant2, ichan, pol] = \
+                            numpy.conjugate(averaged_bvis.data['vis'][itime, ant2, ant1, ichan, pol])
+                    achan += 1
         atime += 1
     
     del bvis
@@ -288,7 +290,10 @@ if __name__ == '__main__':
     
     # Find the average frequencies
     averaged_frequency = numpy.array(average_chunks(frequency, numpy.ones_like(frequency), channel_average))[0]
-    step = abs(averaged_frequency[-1] - averaged_frequency[0]) / (len(averaged_frequency)-1)
+    if len(averaged_frequency) > 1:
+        step = abs(averaged_frequency[-1] - averaged_frequency[0]) / (len(averaged_frequency)-1)
+    else:
+        step = channel_average * channel_bandwidth
     averaged_channel_bandwidth = step * numpy.ones_like(averaged_frequency)
     
     print("Each averaged chunk has %d integrations of duration %.2f (s)" %
