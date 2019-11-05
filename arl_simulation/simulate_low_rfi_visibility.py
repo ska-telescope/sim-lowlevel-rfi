@@ -35,6 +35,7 @@ interest and the Southern Celestial Pole. The unaveraged MeasurementSets are als
 """
 import os
 import pprint
+import time
 
 import matplotlib.pyplot as plt
 import numpy
@@ -48,7 +49,8 @@ from processing_library.image.operations import create_image
 from processing_library.util.array_functions import average_chunks
 
 from processing_components.visibility.base import export_blockvisibility_to_ms
-from workflows.arlexecute.imaging.imaging_arlexecute import invert_list_arlexecute_workflow, sum_invert_results
+from workflows.arlexecute.imaging.imaging_arlexecute import invert_list_arlexecute_workflow, \
+    sum_invert_results_arlexecute
 from wrappers.arlexecute.execution_support.arlexecute import arlexecute
 from wrappers.arlexecute.execution_support.dask_init import get_dask_Client
 from wrappers.arlexecute.image.operations import show_image, export_image_to_fits
@@ -157,6 +159,9 @@ def plot_waterfall(bvis):
 
 
 if __name__ == '__main__':
+    
+    start_epoch = time.asctime()
+    print("\nSKA LOW RFI simulation using ARL\nStarted at %s\n" % start_epoch)
     
     pp = pprint.PrettyPrinter()
     
@@ -350,14 +355,14 @@ if __name__ == '__main__':
             chunk_pole_results.append(result[0])
         
         # Sum over results over this chunk
-        chunk_final_result = arlexecute.execute(sum_invert_results)(chunk_results)
+        chunk_final_result = sum_invert_results_arlexecute(chunk_results)
         results.append(chunk_final_result)
         
-        chunk_final_pole_result = arlexecute.execute(sum_invert_results)(chunk_pole_results)
+        chunk_final_pole_result = sum_invert_results_arlexecute(chunk_pole_results)
         pole_results.append(chunk_final_pole_result)
     
     # Now construct and run a graph to sum the results from the summations over each chunk
-    final_result = arlexecute.execute(sum_invert_results)(results)
+    final_result = sum_invert_results_arlexecute(results)
     dirty, sumwt = arlexecute.compute(final_result, sync=True)
     
     # We are done! make plots and fits files
@@ -376,7 +381,7 @@ if __name__ == '__main__':
     plt.savefig(plotname)
     plt.show(block=False)
 
-    final_pole_result = arlexecute.execute(sum_invert_results)(pole_results)
+    final_pole_result = sum_invert_results_arlexecute(pole_results)
     pole_dirty, pole_sumwt = arlexecute.compute(final_pole_result, sync=True)
 
     if args.write_fits == "True":
@@ -389,3 +394,7 @@ if __name__ == '__main__':
     plt.title('Image of the southern celestial pole')
     plt.savefig(plotname)
     plt.show(block=False)
+
+    print("\nSKA LOW RFI simulation using ARL")
+    print("Started at  %s" % start_epoch)
+    print("Finished at %s" % time.asctime())
